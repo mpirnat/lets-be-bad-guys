@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block header %}
+<h1>Shiny, Let's Be Bad Guys: Exploiting and Mitigating the Top 10 Web App Vulnerabilities</h1>
+<h2>Mike Pirnat, David Stanek</h2>
+{% endblock %}
+
+{% block content %}
+
+<div class="description">
+    <p>The Internet is a dangerous place, filled with evildoers out to attack
+    your code for fun or profit, so it's not enough to just ship your awesome
+    new web app--you have to take the security of your application, your users,
+    and your data seriously. You'll get into the mindset of the bad guys as we
+    discuss, exploit, and mitigate the most common web app security flaws in a
+    controlled environment. See the <a href="{% url 'about' %}">full abstract</a>.
+    </p>
+</div>
+
+<div id="toc">
+    <ol>
+        <li><a href="{% url 'injection' %}">A1: Injection</a></li>
+        <li><a href="{% url 'xss' %}">A2: Cross-Site Scripting (XSS)</a></li>
+        <li>A3: Broken Authentication and Session Management</li>
+        <li>A4: Insecure Direct Object References</li>
+        <li>A5: Cross-Site Request Forgery (CSRF)</li>
+        <li>A6: Security Misconfiguration</li>
+        <li>A7: Insecure Cryptographic Storage</li>
+        <li>A8: Failure to Restrict URL Access</li>
+        <li>A9: Insufficient Transport Layer Protection</li>
+        <li>A10: Unvalidated Redirects and Forwards </li>
+    </ol>
+</div>
+
+{% endblock %}

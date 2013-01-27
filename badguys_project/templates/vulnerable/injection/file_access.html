@@ -1,0 +1,25 @@
+{% extends "exercise_base.html" %}
+
+{% block title %}{{ block.super }}Malicious File Access{% endblock %}
+
+{% block header %}
+    <h1>Malicious File Access</h1>
+{% endblock %}
+
+{% block extra_head %}
+    {% if msg %}
+        <script type="text/javascript">
+            alert('{{msg}}');
+        </script>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <p>Many sites use a dynamic url to retrieve files for the sure. The most
+    common implementation seems to be pulling user images like their profile
+    picture. Instead of using an id or token these sites sometimes use partial
+    file paths. A clever individual could spot this and try to get our DB passwords,
+    <code>/etc/passwd</code> file or other sensitive data on our filesystem.</p>
+    <p>Simple exercise: get the <code>settings.py</code> file to display on the screen.</p>
+    Example link: <a href="{% url 'user-profile' %}?p=hacker.jpg">{% url 'user-profile' %}?p=hacker.jpg</a>
+{% endblock %}

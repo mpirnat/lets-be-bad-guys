@@ -1,0 +1,41 @@
+{% extends "exercise_base.html" %}
+
+{% block title %}{{ block.super }}SQL Injection{% endblock %}
+
+{% block header %}
+    <h1>SQL Injection</h1>
+{% endblock %}
+
+{% block content %}
+    <p>This page mimics a very simple SQL injection attack. Imagine a site
+    where you are registering a user profile. Could a name really hurt you?
+    Give it a try and see what you can do.</p>
+
+    <p>Simple exercise: you know that the crappy registration software this
+    site is using builds SQL by concatenating unsanitized user input. Please
+    inject the query <code>DROP TABLE Users</code> into the SQL.</p>
+
+    <form method="POST">
+        <label for="name">Name</label>
+        <input name="name">
+        <input type="submit">
+    </form>
+
+    {% if name %}
+        {% if correct %}
+            <div class="answer">
+                <p>Correct. You are successfully creating a bad query:</p>
+                <code>{{ name }}</code>
+            </div>
+        {% else %}
+            <div class="hints">
+                <p>Almost. Keep trying, you'll get it. Helpful hits:</p>
+                <ul>
+                    <li>end the original query</li>
+                    <li>end your input with '<code>--</code>' (SQL comment)</li>
+                    <li><a href="http://xkcd.com/327/">solved by a cartoon?</a></li>
+                </ul>
+            </div>
+        {% endif %}
+    {% endif %}
+{% endblock %}

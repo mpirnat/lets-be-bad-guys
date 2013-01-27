@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block seader %}
+    <h2>Injection Attacks</h2>
+{% endblock %}
+
+{% block content %}
+    <p class="details">Maybe some details here</p>
+    <ul>
+        <li><a href="{% url 'injection-sql' %}">SQL Injection</a></li>
+        <li>Insecure <a href="{% url 'injection-file-access' %}">file access</a></li>
+        <li>Malicious <a href="{% url 'injection-code-execution' %}">code-execution</a></li>
+    </ul>
+{% endblock %}

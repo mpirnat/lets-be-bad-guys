@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block header %}
+<h1>Shiny, Let's Be Bad Guys: Exploiting and Mitigating the Top 10 Web App Vulnerabilities</h1>
+<h2>Mike Pirnat, David Stanek</h2>
+{% endblock %}
+
+{% block content %}
+
+Audience level:
+Intermediate
+Category:
+Web Frameworks
+
+<div class="description">
+    <h3>Description</h3>
+    <p>The Internet is a dangerous place, filled with evildoers out to attack
+    your code for fun or profit, so it's not enough to just ship your awesome
+    new web app--you have to take the security of your application, your users,
+    and your data seriously. You'll get into the mindset of the bad guys as we
+    discuss, exploit, and mitigate the most common web app security flaws in a
+    controlled environment.</p>
+</div>
+
+<div class="abstract">
+    <h3>Abstract</h3>
+    <p>We'll discuss each kind of the most prevalent security flaws at the
+    theoretical level, then using a specially-crafted, deliberately vulnerable
+    Django app, individuals or pairs will carry out exploits against these
+    flaws, and we'll illustrate solutions to mitigate each kind of attack.</p>
+
+    <p>We'll be using the OWASP Top 10 as our topic roadmap, addressing
+    topics such as:
+        <ul>
+            <li>Injection attacks</li>
+            <li>Cross-Site Scripting (XSS)</li>
+            <li>Cross-Site Request Forgery (CSRF)</li>
+            <li>Insecure Direct Object References</li>
+            <li>Insecure Cryptographic Storage</li>
+            <li>Failure to Restrict URL Access</li>
+            <li>Unvalidated Redirects and Forwards</li>
+            <li>Security Misconfiguration</li>
+            <li>Broken Authentication and Session Management</li>
+        </ul>
+    </p>
+
+    <p>You'll want to set your brain to "devious" mode; you'll also need a
+    laptop with Python 2.7 (or a buddy you can pair with). Having pip and
+    virtualenv will be useful too, as will having Git installed to pull down
+    the code we'll be working with.</p>
+
+    <p>Attendees should have some experience with Python, Javascript, and SQL,
+    and should have at least a passing familiarity with Django (eg, previously
+    attending a Django tutorial or working through the online tutorial).</p>
+</div>
+{% endblock %}

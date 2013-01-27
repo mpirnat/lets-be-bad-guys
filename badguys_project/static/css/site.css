@@ -1,0 +1,34 @@
+body {
+    display: block;
+    width: 1024px;
+    margin: auto;
+}
+
+footer {
+    display: block;
+    font-size: .85em;
+}
+footer p {
+}
+
+.answer, .hints {
+    border: 1px solid gray;
+    background-color: lightgray;
+    display: inline-block;
+    width: 50%;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.answer p {
+    color: green;
+    margin: 0;
+}
+
+.hints p {
+    color: red;
+    margin: 0;
+}
+.hints ul {
+    margin-bottom: 5px;
+}

@@ -1,0 +1,47 @@
+{% extends "exercise_base.html" %}
+
+{% block title %}{{ block.super }}Malicious Code Execution{% endblock %}
+
+{% block header %}
+    <h1>Malicious Code Execution</h1>
+{% endblock %}
+
+{% block extra_head %}
+    {% if msg %}
+        <script type="text/javascript">
+            alert('{{msg}}');
+        </script>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <h1>Malicious Code Execution</h1>
+    <p>There are several places in our codebase where we could be susceptible
+    to malicious code execution attacks. Why? Well we are using eval and exec
+    (among other things) and probably are not validating the input
+    correctly.</p>
+
+    <p>This attack is much harder, but very powerful. Imagine being able to run
+    arbitrary snippets of code from outside of our firewall.</p>
+
+    <p>Simple exercise: you're clever and you notice a base64 string in a
+    hidden form field. Using a hacker friendly tool you discover that the
+    base64 string is JSON that seems to be evaled or execed and dropped into
+    the JavaScript block on the resulting page. Let's take advantage of the
+    exec and write to a file named <code>/tmp/p0wned.txt</code>. (I made this a
+    little easier by using the GET method for the form.)</p>
+
+    <p>Helpful hints:
+        <ul>
+          <li>Use a Python one-liner to open and write to a file.</li>
+          <li>Don't forget the base64.</li>
+        </ul>
+    </p>
+
+    <h2>Vulnerable Form</h2>
+    <form method="POST">
+        <label for="first_name">First Name:</label>
+        <input name="first_name">
+        <input type="submit">
+    </form>
+{% endblock %}
