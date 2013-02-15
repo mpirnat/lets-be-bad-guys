@@ -1,0 +1,23 @@
+{% extends "exercise_base.html" %}
+
+{% block title %}{{ block.super }}Bypassing Access Control{% endblock %}
+
+{% block header %}
+    <h1>Bypassing Access Control</h1>
+{% endblock %}
+
+{% block content %}
+    <h1>Bypassing Access Control</h1>
+
+    <p>An application might use forwards to route requests between different
+    parts of the site.  To facilitate this, some pages use a parameter to
+    indicate where the request should be sent if a transaction is successful.
+    This can allow an attack to craft a URL that will bypass the site's usual
+    access controls and forward the attacker into a sensitive or restricted area
+    of the site (like an admin app).</p>
+
+    <p>Our vulnerable codebase has
+    <a href="{% url 'redirects-forward' %}?fwd=happy">this kind of flaw</a>.
+    Exploit it to access our super-secret 'admin' area.</p>
+
+{% endblock %}

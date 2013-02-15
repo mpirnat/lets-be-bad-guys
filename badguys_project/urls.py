@@ -14,6 +14,8 @@ urlpatterns = patterns('',
 )
 
 urlpatterns += patterns('badguys.vulnerable.views',
+
+    # Exercise 01 - Injection Attacks
     url(r'^injection$',
         TemplateView.as_view(template_name='vulnerable/injection/index.html'),
         name="injection"),
@@ -24,6 +26,7 @@ urlpatterns += patterns('badguys.vulnerable.views',
     url(r'^injection/code-execution$', 'code_execution',
         name="injection-code-execution"),
 
+    # Exercise 02 - XSS Attacks
     url(r'^cross-site-scripting$',
         TemplateView.as_view(template_name='vulnerable/xss/index.html'),
         name="xss"),
@@ -36,6 +39,20 @@ urlpatterns += patterns('badguys.vulnerable.views',
     url(r'^cross-site-scripting/query-params$',
         TemplateView.as_view(template_name='vulnerable/xss/query.html'),
         name="xss-query"),
+
+    # Exercise 10 - Unvalidated Redirects
+    url(r'^redirects-and-forwards$',
+        TemplateView.as_view(template_name='vulnerable/redirects/index.html'),
+        name='redirects'),
+    url(r'^redirects-and-forwards/redirects$',
+        TemplateView.as_view(template_name='vulnerable/redirects/redirects.html'),
+        name='redirects-redirects'),
+    url(r'^redirects-and-forwards/redirect$', 'unvalidated_redirect',
+        name='redirects-redirect'),
+    url(r'^redirects-and-forwards/forwards$',
+        TemplateView.as_view(template_name='vulnerable/redirects/forwards.html'),
+        name='redirects-forwards'),
+    url(r'^redirects-and-forwards/forward$', 'unvalidated_forward', name='redirects-forward')
 
     # url(r'^$', 'badguys_project.views.home', name='home'),
     # url(r'^badguys_project/', include('badguys_project.foo.urls')),

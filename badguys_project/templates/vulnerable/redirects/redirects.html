@@ -1,0 +1,26 @@
+{% extends "exercise_base.html" %}
+
+{% block title %}{{ block.super }}External Redirects{% endblock %}
+
+{% block header %}
+    <h1>External Redirects</h1>
+{% endblock %}
+
+{% block content %}
+    <h1>External Redirects</h1>
+
+    <p>It's a pretty common practice to have a page that will redirect to some
+    other URL based on some kind of query parameter... It might be a login page
+    that needs to redirect back to wherever the user was when before they
+    logged in, or it might be a page that gently redirects from an HTTPS to HTTP
+    location to circumvent browser warnings.</p>
+
+    <p>But if you don't check the redirect location, it's also a gateway for
+    bad guys to attack your users by sending them along to a malicious location
+    that might install malware, phish for sensitive data, etc.</p>
+
+    <p>Our vulnerable codebase has
+    <a href="{% url 'redirects-redirect' %}?url=%2Fredirects-and-forwards%2Fredirects">such a page</a>.
+    Attack it and make it go somewhere off site.</p>
+
+{% endblock %}

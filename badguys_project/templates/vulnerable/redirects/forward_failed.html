@@ -1,0 +1,14 @@
+{% extends "exercise_base.html" %}
+
+{% block title %}{{ block.super }}Unable to Forward Request{% endblock %}
+
+{% block header %}
+    <h1>Unable to Forward Request</h1>
+{% endblock %}
+
+{% block content %}
+    <h1>Unable to Forward Request</h1>
+
+    <p>Unable to forward to '{{ fwd }}'.  Try again?</p>
+
+{% endblock %}
