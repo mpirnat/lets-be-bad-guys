@@ -103,6 +103,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
 ROOT_URLCONF = 'badguys_project.urls'
@@ -123,6 +124,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     # 'django.contrib.admin',
     # 'django.contrib.admindocs',
+
+    'debug_toolbar',
 
     'badguys.vulnerable',
     'badguys.hints',
@@ -156,3 +159,36 @@ LOGGING = {
         },
     }
 }
+
+# Session {{{
+# This exists to support the Django Debug toolbar in this example.
+# The default session store is in the database and I saw no reason
+# to create one for a single exercise.
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    }
+}
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+
+# }}}
+
+# Debug Toolbar {{{
+
+def show_toolbar(request):
+    if request.GET.get('debug') or \
+            request.POST.get('debug') or \
+            request.COOKIES.get('debug'):
+        return True
+
+DEBUG_TOOLBAR_CONFIG = {
+        'SHOW_TOOLBAR_CALLBACK': show_toolbar
+}
+
+del show_toolbar
+
+# }}}
+
+# vim: set foldmethod=marker:
