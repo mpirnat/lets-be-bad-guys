@@ -116,6 +116,11 @@ def dor_user_profile(request, userid=None):
     env['user_id'] = userid
     return render(request, 'vulnerable/direct_object_references/profile.html', env)
 
+## 05 - Security Misconfiguration
+
+def boom(request):
+    raise Exception('boom')
+
 
 ## 06 - Sensitive Data Exposure
 
