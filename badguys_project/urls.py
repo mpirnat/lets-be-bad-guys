@@ -40,7 +40,14 @@ urlpatterns += patterns('badguys.vulnerable.views',
         TemplateView.as_view(template_name='vulnerable/xss/query.html'),
         name="xss-query"),
 
-    # Exercise 10 - Unvalidated Redirects
+    # Exercise 09 - Insufficient Transport Layer Protection
+    url(r'^insufficient-transport-layer-protection$',
+        TemplateView.as_view(template_name='vulnerable/transport/index.html'),
+        name='transport'),
+    url(r'^insufficient-transport-layer-protection/login$', 'transport_login',
+        name='transport-login'),
+
+    # Exercise 10 - Unvalidated Redirects & Forwards
     url(r'^redirects-and-forwards$',
         TemplateView.as_view(template_name='vulnerable/redirects/index.html'),
         name='redirects'),
