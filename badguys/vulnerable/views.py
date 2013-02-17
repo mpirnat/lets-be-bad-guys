@@ -6,7 +6,10 @@ import urllib
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
+from django.views.decorators.csrf import csrf_exempt
 
+
+## 01 - Injection Attacks
 
 def norm(s):
     return s.strip().replace(' ', '').lower()
@@ -66,6 +69,21 @@ def code_execution(request):
     # solution: >>> import base64
     #           >>> base64.encodestring("file('/tmp/p0wned.txt', 'w').write('boom!')")
 
+## 05 - CSRF
+
+@csrf_exempt
+def csrf_image(request):
+    env = {'qs': request.GET.get('qs', '')}
+    return render(request, 'vulnerable/csrf/image.html', env)
+
+
+## 09 - Insufficient Transport Layer Protection
+
+def transport_login(request):
+    return redirect('transport')
+
+
+## 10 - Unvalidated Redirects & Forwards
 
 def unvalidated_redirect(request):
     url = request.GET.get('url')
@@ -86,5 +104,3 @@ def admin(request):
     return render(request, 'vulnerable/redirects/admin.html', {})
 
 
-def transport_login(request):
-    return redirect('transport')

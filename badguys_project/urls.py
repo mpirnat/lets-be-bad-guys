@@ -40,6 +40,19 @@ urlpatterns += patterns('badguys.vulnerable.views',
         TemplateView.as_view(template_name='vulnerable/xss/query.html'),
         name="xss-query"),
 
+    # Exercise 05 - CSRF Attacks
+    url(r'^csrf$',
+        TemplateView.as_view(template_name='vulnerable/csrf/index.html'),
+        name='csrf'),
+    url(r'^csrf/image$', 'csrf_image',
+        name='csrf-image'),
+    url(r'^csrf/third-party-site$',
+        TemplateView.as_view(template_name='vulnerable/csrf/third_party.html'),
+        name='csrf-third-party'),
+    url(r'^csrf/gift-card$',
+        TemplateView.as_view(template_name='vulnerable/csrf/gift_card.html'),
+        name='csrf-gift-card'),
+
     # Exercise 09 - Insufficient Transport Layer Protection
     url(r'^insufficient-transport-layer-protection$',
         TemplateView.as_view(template_name='vulnerable/transport/index.html'),
