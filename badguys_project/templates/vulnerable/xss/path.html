@@ -1,0 +1,43 @@
+{% extends "exercise_base.html" %}
+
+{% block title %}{{ block.super }}XSS via URL Path Variables{% endblock %}
+
+{% block header %}
+    <h1>XSS via URL Path Variables</h1>
+{% endblock %}
+
+{% block extra_head %}
+<script type="text/javascript">
+window.onload = function() {
+    var myvar = "{{path|safe}}";
+
+    var result = '';
+    if (document.title == 'PLZ HACK MY USERS') {
+        result = '<b>Success</b> You have managed to inject your ' +
+            'own JavaScript into this page';
+    } else {
+        result = 'This page has not yet been hacked.';
+    }
+    document.getElementById("result").innerHTML = result;
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<p>Many URL dispatching schemes give you the ability to pull data from
+the path and have it passed into your controller. This allows you to set up
+URLs like '/category/{id}' and that you want it to parse the id and pass it
+into the view. Since the path is provided by the user we must make sure it
+doesn't contain anything malicious.</p>
+
+<p>In this exercise, manipulate the URL path to inject
+JavaScript that will change this page title to <i>PLZ HACK MY USERS</i>.</p>
+
+<div id="result"></div>
+
+<p>Helpful hints:</p>
+<ul>
+    <li>Look at the HTML and compare it to the browser path.</li>
+    <li>document.title is the property that you want to modify.</li>
+</ul>
+{% endblock %}

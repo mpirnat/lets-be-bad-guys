@@ -1,0 +1,41 @@
+{% extends "exercise_base.html" %}
+
+{% block title %}{{ block.super }}XSS via Form Field Injection{% endblock %}
+
+{% block header %}
+    <h1>XSS via Form Field Injection</h1>
+{% endblock %}
+
+{% block extra_head %}
+<script type="text/javascript">
+window.onload = function() {
+    var result = '';
+    var cookie = document.getElementById('cookie').firstChild.nodeValue;
+    if (cookie.search('mc_p_dev') > -1) {
+        result = '<strong>Success!</strong> You have managed to ' +
+            'steal cookies from our user.';
+    } else {
+        result = 'This page has not yet been hacked.';
+    }
+    document.getElementById("result").innerHTML = result;
+};
+</script>
+{% endblock %}
+
+{% block content %}
+<p>Users can never be trusted. They are all out to take advantage of
+us and other users of your websites.</p>
+
+<p>In this exercise you must "steal" the currently logged user's cookie.
+Take that cookie and put it in div#cookie using the element's innerHTML
+property.</p>
+
+<div id="cookie">Put the cookie here.</div>
+
+<form method="get">
+    <input type="text" name="qs" value="{{qs|safe}}">
+    <input type="submit" value="Submit">
+</form>
+
+<div id="result"></div>
+{% endblock %}

@@ -7,7 +7,7 @@
 {% block content %}
     <p class="details">Maybe some details here</p>
     <ul>
-        <li>Insecure <a href="{% url 'xss-path' %}/some-path-here">path matching</a></li>
+        <li>Insecure <a href="{% url 'xss-path' 'your-path-here' %}">path matching</a></li>
         <li>Insecure <a href="{% url 'xss-form' %}?qs=prepopulated%20value">form fields</a></li>
         <li>Insecure <a href="{% url 'xss-query' %}?qs=awesome">query params</a></li>
     </ul>

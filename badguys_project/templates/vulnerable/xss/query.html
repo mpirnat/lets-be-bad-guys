@@ -1,0 +1,51 @@
+{% extends "exercise_base.html" %}
+
+{% block title %}{{ block.super }}XSS via Query Parameters{% endblock %}
+
+{% block header %}
+    <h1>XSS via Query Parameters</h1>
+{% endblock %}
+
+{% block content %}
+<p>We have all heard that it is very dangerous to blindly use user input
+in our pages. How easy is it to exploit?</p>
+
+<p>In this exercise you must add a new &lt;img&gt;element to the DOM. The
+source for the image needs to be 'http://test/image.jpg' exactly.</p>
+
+<div id="result"></div>
+
+<p>Some helpful hints:</p>
+<ul>
+    <li>Look at the HTML and compare it to the query params.</li>
+    <li>Your JavaScript must be escaped.</li>
+    <li>document.createElement, .setAttribute and document.body.appendChild are your friends.</li>
+    <li>Remember to terminate the statement you are trying to hijack.</li>
+</ul>
+
+
+<script type="text/javascript">
+    var myvar = "{{qs|safe}}";
+
+    function find_hack_image() {
+        for (var x=0; x<document.images.length; x++) {
+            if (document.images[\x].src == 'http://test/image.jpg')
+                return document.images[\x];
+        }
+        return null;
+    }
+
+    var result = '';
+    var img = find_hack_image();
+    if (!img) {
+        result = 'This page has not yet been hacked.';
+    } else if (img.style.display == 'none') {
+        result = '<strong>Sweeeeeet!</strong> You get bonus points, brown noser.';
+    } else {
+        result = '<strong>Success!</strong> You have added your own ' +
+            'img to my page. For bonus points you should try to hide ' +
+            'it from the user.';
+    }
+    document.getElementById("result").innerHTML = result;
+</script>
+{% endblock %}

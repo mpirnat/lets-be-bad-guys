@@ -69,6 +69,24 @@ def code_execution(request):
     # solution: >>> import base64
     #           >>> base64.encodestring("file('/tmp/p0wned.txt', 'w').write('boom!')")
 
+
+## 02 - XSS
+
+def xss_form(request):
+    env = {'qs': request.GET.get('qs', 'hello')}
+    return render(request, 'vulnerable/xss/form.html', env)
+
+
+def xss_path(request, path='default'):
+    env = {'path': path}
+    return render(request, 'vulnerable/xss/path.html', env)
+
+
+def xss_query(request):
+    env = {'qs': request.GET.get('qs', 'hello')}
+    return render(request, 'vulnerable/xss/query.html', env)
+
+
 ## 05 - CSRF
 
 @csrf_exempt
