@@ -1,0 +1,23 @@
+{% extends "exercise_base.html" %}
+
+{% block title %}{{ block.super }}Example Form{% endblock %}
+
+{% block header %}
+    <h1>Example Gift Card Form</h1>
+{% endblock %}
+
+{% block content %}
+<p>This form is used by the CSRF exercises. Use it as a reference for
+required parameters. For more information please see the exercises:</p>
+
+<ul>
+    <li><a href="{% url 'csrf-third-party' %}">POSTing a form from a third-party site</a></li>
+    <li><a href="{% url 'csrf-image' %}">"POSTing" a form using an image tag</a></li>
+</ul>
+
+<form method="POST">
+    <label for="email">Send a giftcard to email:</label><input type="text" name="email"><br>
+    <label for="amount">Giftcard amount:</label><input type="text" name="amount"><br>
+    <input type="submit" value="Buy Now">
+</form>
+{% endblock %}

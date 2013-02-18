@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h2>Cross-Site Request Forgery (CSRF)</h2>
+{% endblock %}
+
+{% block content %}
+    <p class="details">Maybe some details here</p>
+    <ul>
+        <li><a href="{% url 'csrf-image' %}">CSRF via image GET</a></li>
+        <li><a href="{% url 'csrf-third-party' %}">CSRF from a third party site</a></li>
+    </ul>
+{% endblock %}

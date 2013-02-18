@@ -1,0 +1,88 @@
+{% extends "exercise_base.html" %}
+
+{% block title %}{{ block.super }}CSRF Image Attack{% endblock %}
+
+{% block header %}
+    <h1>CSRF Image Attack</h1>
+{% endblock %}
+
+{% block content %}
+
+<p>Imagine, if you will, a website feature where an authenticated user with a
+Payment on File could easily send a gift card to a friend.</p>
+
+<p>Seems innocent. We'll make sure that when the user POSTs the form that
+they are authenticated and that have a PoF. Done. Safe. Or...</p>
+
+<p>What would happen if we were not careful about security? Let's pretend
+that the view doesn't check if the POST was a POST. If we could find another
+page on the site with an XSS vulnerablity we could contruct a URL that
+could inject an image like that triggers a giftcard purchase.</p>
+
+<p>Let's try it!</p>
+
+<ul>
+    <li>Use the <a href="{% url 'csrf-gift-card' %}">giftcard</a> form for reference.</li>
+    <li>Your email address is evil@evil.com</li>
+    <li>You want $100 giftcards (the field expects an integer)</li>
+    <li>Use a querystring parameter 'qs' on this page to inject the image.</li>
+</ul>
+
+{% endblock %}
+
+
+{% block extra_head %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+<script type="text/javascript">
+var x = "[<qs>]";
+
+function contains(arr, item) {
+    for (var i in arr) {
+        if (arr[i ] === item) { return true; }
+    }
+    return false;
+}
+
+$(function() {
+    var images = $('img').toArray();
+    console.log(images);
+    var injected_src = '';
+
+    for (var i in images) {
+        var $image = $(images[i ]);
+        console.log($image);
+        if ($image.attr('src').indexOf('/danger/vulnerable') > -1) {
+            injected_src = $image.attr('src');
+            break;
+        }
+    }
+
+    if (!injected_src && window.location.search.length > 3) {
+        alert("I see you any trying the exercise. Keep going and you'll get it!");
+        return; // has started, but no valid image can be found
+    } else if (!injected_src) {
+        return; // has not started yet
+    }
+
+    var path = injected_src.match(/.*newworld.com:\d*(.*)\?.*/)[1 ];
+    var qs = injected_src.match(/.*\?(.*)/)[1 ].split('&');
+
+    if (path != '/danger/vulnerable/csrf-giftcard') {
+        alert('You seem to be using the wrong path to the form');
+        return;
+    }
+
+    if (!contains(qs, 'email=evil@evil.com')) {
+        alert("Your injected image doesn't have the correct email specified");
+        return;
+    }
+
+    if (!contains(qs, 'amount=100')) {
+        alert("Your injected image doesn't have the correct amount specified");
+        return;
+    }
+
+    alert('You have successfully padded your pockets on the backs of others.');
+});
+</script>
+{% endblock %}
