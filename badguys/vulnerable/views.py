@@ -69,8 +69,10 @@ def code_execution(request):
     # solution: >>> import base64
     #           >>> base64.encodestring("file('/tmp/p0wned.txt', 'w').write('boom!')")
 
+## 02 - Broken Authentication & Session Management
 
-## 02 - XSS
+
+## 03 - XSS
 
 def xss_form(request):
     env = {'qs': request.GET.get('qs', 'hello')}
@@ -87,7 +89,19 @@ def xss_query(request):
     return render(request, 'vulnerable/xss/query.html', env)
 
 
-## 05 - CSRF
+## 04 - Insecure Direct Object References
+
+
+## 06 - Sensitive Data Exposure
+
+def exposure_login(request):
+    return redirect('exposure')
+
+
+## 07 - Missing Function Level Access Control
+
+
+## 08 - CSRF
 
 @csrf_exempt
 def csrf_image(request):
@@ -95,10 +109,8 @@ def csrf_image(request):
     return render(request, 'vulnerable/csrf/image.html', env)
 
 
-## 09 - Insufficient Transport Layer Protection
-
-def transport_login(request):
-    return redirect('transport')
+## 09 - Using Known Vulnerable Components
+# No exercise, just discussion?
 
 
 ## 10 - Unvalidated Redirects & Forwards

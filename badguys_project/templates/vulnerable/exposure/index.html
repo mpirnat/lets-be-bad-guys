@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block header %}
-    <h2>Insufficient Transport Layer Protection</h2>
+    <h2>Sensitive Data Exposure</h2>
 {% endblock %}
 
 {% block content %}
@@ -15,7 +15,7 @@ capture and replay cookies, or compromise other sensitive data.</p>
 user's credentials in the clear.  Start up a proxy on your computer and watch
 the request when the form below is submitted.</p>
 
-<form action="{% url 'transport-login' %}" method="POST">
+<form action="{% url 'exposure-login' %}" method="POST">
     <p>User name: <input type="text" name="username"></p>
     <p>Password: <input type="password" name="password"></p>
     <p><input type="submit"></p>

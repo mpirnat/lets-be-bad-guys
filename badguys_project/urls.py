@@ -26,7 +26,9 @@ urlpatterns += patterns('badguys.vulnerable.views',
     url(r'^injection/code-execution$', 'code_execution',
         name="injection-code-execution"),
 
-    # Exercise 02 - XSS Attacks
+    # Exercise 02 - Broken Authentication & Session Management
+
+    # Exercise 03 - XSS Attacks
     url(r'^cross-site-scripting$',
         TemplateView.as_view(template_name='vulnerable/xss/index.html'),
         name="xss"),
@@ -37,7 +39,20 @@ urlpatterns += patterns('badguys.vulnerable.views',
     url(r'^cross-site-scripting/query-params$', 'xss_query',
         name="xss-query"),
 
-    # Exercise 05 - CSRF Attacks
+    # Exercise 04 - Insecure Direct Object References
+
+    # Exercise 05 - Security Misconfiguration
+
+    # Exercise 06 - Sensitive Data Exposure
+    url(r'^data-exposure$',
+        TemplateView.as_view(template_name='vulnerable/exposure/index.html'),
+        name='exposure'),
+    url(r'^data-exposure/login$', 'exposure_login',
+        name='exposure-login'),
+
+    # Exercise 07 - Missing Function-Level Access Control
+
+    # Exercise 08 - CSRF Attacks
     url(r'^csrf$',
         TemplateView.as_view(template_name='vulnerable/csrf/index.html'),
         name='csrf'),
@@ -50,12 +65,8 @@ urlpatterns += patterns('badguys.vulnerable.views',
         TemplateView.as_view(template_name='vulnerable/csrf/gift_card.html'),
         name='csrf-gift-card'),
 
-    # Exercise 09 - Insufficient Transport Layer Protection
-    url(r'^insufficient-transport-layer-protection$',
-        TemplateView.as_view(template_name='vulnerable/transport/index.html'),
-        name='transport'),
-    url(r'^insufficient-transport-layer-protection/login$', 'transport_login',
-        name='transport-login'),
+    # Exercise 09 - Using Known Vulnerable Components
+    # No exercise, discussion only?
 
     # Exercise 10 - Unvalidated Redirects & Forwards
     url(r'^redirects-and-forwards$',
