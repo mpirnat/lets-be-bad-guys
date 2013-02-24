@@ -100,6 +100,12 @@ def exposure_login(request):
 
 ## 07 - Missing Function Level Access Control
 
+def missing_access_control(request):
+    env = {}
+    if request.GET.get('action') == 'admin':
+        return render(request, 'vulnerable/access_control/admin.html', env)
+    return render(request, 'vulnerable/access_control/non_admin.html', env)
+
 
 ## 08 - CSRF
 

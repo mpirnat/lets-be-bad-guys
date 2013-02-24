@@ -52,6 +52,13 @@ urlpatterns += patterns('badguys.vulnerable.views',
 
     # Exercise 07 - Missing Function-Level Access Control
 
+    url(r'^missing-access-control$',
+        TemplateView.as_view(template_name='vulnerable/access_control/index.html'),
+        name='access-control'),
+
+    url(r'^missing-access-control/happy-page$', 'missing_access_control',
+        name='access-control-missing'),
+
     # Exercise 08 - CSRF Attacks
     url(r'^csrf$',
         TemplateView.as_view(template_name='vulnerable/csrf/index.html'),
