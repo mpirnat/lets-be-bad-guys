@@ -20,14 +20,13 @@
 <div id="toc">
     <ol>
         <li><a href="{% url 'injection' %}">A1: Injection</a></li>
-        <li><a href="{% url 'xss' %}">A2: Cross-Site Scripting (XSS)</a></li>
-        <li>A3: Broken Authentication and Session Management</li>
+        <li>A2: Broken Authentication and Session Management</li>
+        <li><a href="{% url 'xss' %}">A3: Cross-Site Scripting (XSS)</a></li>
         <li>A4: Insecure Direct Object References</li>
-        <li><a href="{% url 'csrf' %}">A5: Cross-Site Request Forgery (CSRF)</a></li>
-        <li>A6: Security Misconfiguration</li>
-        <li>A7: Insecure Cryptographic Storage</li>
-        <li>A8: Failure to Restrict URL Access</li>
-        <li><a href="{% url 'transport' %}">A9: Insufficient Transport Layer Protection</a></li>
+        <li>A5: Security Misconfiguration</li>
+        <li><a href="{% url 'exposure' %}">A6: Sensitive Data Exposure</a></li>
+        <li><a href="{% url 'access-control' %}">A7: Missing Function-Level Access Control</a></li>
+        <li><a href="{% url 'csrf' %}">A8: Cross-Site Request Forgery (CSRF)</a></li>
         <li><a href="{% url 'redirects' %}">A10: Unvalidated Redirects and Forwards</a></li>
     </ol>
 </div>
