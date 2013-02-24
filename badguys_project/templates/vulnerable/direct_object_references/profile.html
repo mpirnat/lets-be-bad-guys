@@ -1,0 +1,34 @@
+{% extends "exercise_base.html" %}
+
+{% block title %}Your User Profile{% endblock %}
+
+{% block header %}
+    <h1>Your User Profile</h1>
+{% endblock %}
+
+{% block content %}
+
+{% if updated %}
+<p>Updated your user profile, thanks!</p>
+{% endif %}
+
+<form action="{% url 'direct-object-references-profile' user_id %}" method="POST">
+
+{% if user_data.admin %}
+<p>You are an admin! Use it wisely.</p>
+{% endif %}
+
+<p><label for="name">Name:</label>
+    <input type="text" name="name" id="name" value="{{ user_data.name }}"></p>
+
+<p><label for="email">Email:</label>
+    <input type="email" name="email" id="email" value="{{ user_data.email }}"></p>
+
+<p><label for="password">Password:</label>
+    <input type="password" name="password" id="password"></p>
+
+<p><input type="submit"></p>
+
+</form>
+
+{% endblock %}

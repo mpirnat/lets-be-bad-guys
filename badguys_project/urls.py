@@ -40,6 +40,12 @@ urlpatterns += patterns('badguys.vulnerable.views',
         name="xss-query"),
 
     # Exercise 04 - Insecure Direct Object References
+    url(r'^direct-object-references$',
+        TemplateView.as_view(template_name='vulnerable/direct_object_references/index.html'),
+        name="direct-object-references"),
+
+    url(r'^direct-object-references/users/(?P<userid>\d+)$', 'dor_user_profile',
+        name='direct-object-references-profile'),
 
     # Exercise 05 - Security Misconfiguration
 
