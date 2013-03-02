@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h2>Security Misconfiguration</h2>
+{% endblock %}
+
+{% block content %}
+    <p class="details">Examples of common carelessness</p>
+    <ul>
+        <li><a href="?debug=1">The secret Django Debug Toolbar</a></li>
+        <li><a href="{% url 'misconfig-boom' %}">Debug enabled in production</a></li>
+    </ul>
+    <div class="notes">What is an attacker could inject code to make the app fail when connecting to the database?</div>
+{% endblock %}

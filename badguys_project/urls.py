@@ -48,6 +48,11 @@ urlpatterns += patterns('badguys.vulnerable.views',
         name='direct-object-references-profile'),
 
     # Exercise 05 - Security Misconfiguration
+    url(r'^misconfiguration$',
+        TemplateView.as_view(template_name='vulnerable/misconfig/index.html'),
+        name='misconfig'),
+
+    url(r'^misconfiguration/boom$', 'boom', name='misconfig-boom'),
 
     # Exercise 06 - Sensitive Data Exposure
     url(r'^data-exposure$',
