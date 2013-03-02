@@ -1,2 +1,2 @@
-http://www.djangoproject.com/download/1.5c2/tarball/
+Django==1.5
 django-debug-toolbar
