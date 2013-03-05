@@ -1,3 +1,4 @@
+/*
 body {
     display: block;
     width: 1024px;
@@ -10,6 +11,7 @@ footer {
 }
 footer p {
 }
+*/	
 
 .answer, .hints {
     border: 1px solid gray;
@@ -31,4 +33,24 @@ footer p {
 }
 .hints ul {
     margin-bottom: 5px;
+}
+
+#content {
+	margin-bottom: 2em;
+}
+
+#content ul {
+	list-style-position: inside;
+}
+
+aside ul {
+	font-size: 10pt;
+}
+
+hgroup h1 {
+	font-size: 20pt;
+	margin-bottom: -0.2em;
+}
+hgroup h2 {
+	font-size: 14pt;
 }

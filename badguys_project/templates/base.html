@@ -12,6 +12,7 @@
   <link rel="shortcut icon" href="{{ STATIC_URL }}images/favicon.ico">
   <link rel="stylesheet" href="{{ STATIC_URL }}css/normalize.css">
   <link rel="stylesheet" href="{{ STATIC_URL }}css/foundation.min.css">
+  <link rel="stylesheet" href="{{ STATIC_URL }}css/site.css">
 
   <script src="{{ STATIC_URL}}js/vendor/custom.modernizr.js"></script>
 
@@ -22,27 +23,26 @@
 
 
 <!-- Header and Nav -->
-  <div class="row">
-      <div class="large-12 columns">
-      {% block header %}
-      {% endblock %}
-  <div class="row">
-
-    <div class="large-3 columns">
-      <h1><img src="http://placehold.it/400x100&text=Logo" /></h1>
+    <div class="row">
+        <div class="large-12 columns">
+            <hgroup>
+                <h1>Shiny, Let's Be Bad Guys!</h1>
+                <h2>Exploiting and Mitigating the Top 10 Web App Vulnerabilities</h2>
+            </hgroup>
+        </div>
     </div>
 
-    <div class="large-9 columns">
-      <ul class="inline-list right">
-        <li><a href="#">Section 1</a></li>
-        <li><a href="#">Section 2</a></li>
-        <li><a href="#">Section 3</a></li>
-        <li><a href="#">Section 4</a></li>
-      </ul>
+    <div id="topnav" class="row">
+        <div class="large-9 columns large-offset-3">
+            <ul class="inline-list right">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                {% block extra_topnav %}{% endblock %}
+            </ul>
+        </div>
     </div>
-  </div>
 
-  <!-- End Header and Nav -->
+<!-- End Header and Nav -->
 
 
   <div class="row">
@@ -50,7 +50,9 @@
     <!-- Main Content Section -->
     <!-- This has been source ordered to come first in the markup (and on
     small devices) but to be to the right of the nav on larger screens -->
-    <div class="large-9 push-3 columns">
+    <div id="content" class="large-9 push-3 columns">
+        {% block header %}
+        {% endblock %}
 
         {% block content %}
         {% endblock %}
@@ -59,65 +61,63 @@
 
     <!-- Nav Sidebar -->
     <!-- This is source ordered to be pulled to the left on larger screens -->
-    <div class="large-3 pull-9 columns">
+    <aside class="large-3 pull-9 columns">
 
-      <ul class="side-nav">
-        <li><a href="#">Section 1</a></li>
-        <li><a href="#">Section 2</a></li>
-        <li><a href="#">Section 3</a></li>
-        <li><a href="#">Section 4</a></li>
-        <li><a href="#">Section 5</a></li>
-        <li><a href="#">Section 6</a></li>
-      </ul>
+        <h4>Exercises</h4>
 
-      <p><img src="http://placehold.it/320x240&text=Ad" /></p>
+        <ul class="side-nav">
+            <li><a href="{% url 'injection' %}">A1: Injection</a></li>
+            <li>A2: Broken Authentication and Session Management</li>
+            <li><a href="{% url 'xss' %}">A3: Cross-Site Scripting (XSS)</a></li>
+            <li><a href="{% url 'direct-object-references' %}">A4: Insecure Direct Object References</a></li>
+            <li><a href="{% url 'misconfig' %}">A5: Security Misconfiguration</a></li>
+            <li><a href="{% url 'exposure' %}">A6: Sensitive Data Exposure</a></li>
+            <li><a href="{% url 'access-control' %}">A7: Missing Function-Level Access Control</a></li>
+            <li><a href="{% url 'csrf' %}">A8: Cross-Site Request Forgery (CSRF)</a></li>
+            <li>A9: Using Known Vulnerable Components</li>
+            <li><a href="{% url 'redirects' %}">A10: Unvalidated Redirects and Forwards</a></li>
+        </ul>
 
-    </div>
+    </aside>
 
   </div>
 
 
   <!-- Footer -->
 
-  <footer class="row">
-    <div class="large-12 columns">
-      <hr />
-      <div class="row">
-        <div class="large-6 columns">
-            <p>Copyright &copy; 2013
-                <a href="http://mike.pirnat.com/">Mike Pirnat</a> &amp;
-                <a href="http://traceback.org/">David Stanek</a>
-            </p>
-        </div>
-        <div class="large-6 columns">
-          <ul class="inline-list right">
-            <li><a href="{% url 'about' %}">About</a></li>
-            <li><a href="#">Section 1</a></li>
-            <li><a href="#">Section 2</a></li>
-            <li><a href="#">Section 3</a></li>
-            <li><a href="#">Section 4</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
+	<footer class="row">
+		<div class="large-6 columns">
+			<p>Copyright &copy; 2013
+				<a href="http://mike.pirnat.com/">Mike Pirnat</a> &amp;
+				<a href="http://traceback.org/">David Stanek</a>
+			</p>
+		</div>
+		<div id="botnav" class="large-6 columns">
+			<ul class="inline-list right">
+				<li><a href="{% url 'home' %}">Home</a></li>
+				<li><a href="{% url 'about' %}">About</a></li>
+				{% block extra_botnav %}{% endblock %}
+			</ul>
+		</div>
+    </footer>
   <script src="{{ STATIC_URL }}js/vendor/zepto.js"></script>
   <script src="{{ STATIC_URL }}js/foundation/foundation.js"></script>
-  <!--
-  <script src="js/foundation/foundation.cookie.js"></script>
-  <script src="js/foundation/foundation.alerts.js"></script>
-  <script src="js/foundation/foundation.clearing.js"></script>
-  <script src="js/foundation/foundation.dropdown.js"></script>
-  <script src="js/foundation/foundation.forms.js"></script>
-  <script src="js/foundation/foundation.joyride.js"></script>
-  <script src="js/foundation/foundation.magellan.js"></script>
-  <script src="js/foundation/foundation.orbit.js"></script>
-  <script src="js/foundation/foundation.placeholder.js"></script>
-  <script src="js/foundation/foundation.reveal.js"></script>
-  <script src="js/foundation/foundation.section.js"></script>
-  <script src="js/foundation/foundation.tooltips.js"></script>
-  <script src="js/foundation/foundation.topbar.js"></script>
-  -->
+  <script src="{{ STATIC_URL }}js/foundation/foundation.cookie.js"></script>
+  <script src="{{ STATIC_URL }}js/foundation/foundation.alerts.js"></script>
+  <script src="{{ STATIC_URL }}js/foundation/foundation.clearing.js"></script>
+  <script src="{{ STATIC_URL }}js/foundation/foundation.dropdown.js"></script>
+  <script src="{{ STATIC_URL }}js/foundation/foundation.forms.js"></script>
+  <script src="{{ STATIC_URL }}js/foundation/foundation.joyride.js"></script>
+  <script src="{{ STATIC_URL }}js/foundation/foundation.magellan.js"></script>
+  <script src="{{ STATIC_URL }}js/foundation/foundation.orbit.js"></script>
+  <script src="{{ STATIC_URL }}js/foundation/foundation.placeholder.js"></script>
+  <script src="{{ STATIC_URL }}js/foundation/foundation.reveal.js"></script>
+  <script src="{{ STATIC_URL }}js/foundation/foundation.section.js"></script>
+  <script src="{{ STATIC_URL }}js/foundation/foundation.tooltips.js"></script>
+  <script src="{{ STATIC_URL }}js/foundation/foundation.topbar.js"></script>
   <!-- Application Javascript, safe to override -->
+  <script>
+    $(document).foundation().foundation('joyride', 'start');
+  </script>
 </body>
 </html>
