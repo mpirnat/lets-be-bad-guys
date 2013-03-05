@@ -1,18 +1,3 @@
-/*
-body {
-    display: block;
-    width: 1024px;
-    margin: auto;
-}
-
-footer {
-    display: block;
-    font-size: .85em;
-}
-footer p {
-}
-*/	
-
 .answer, .hints {
     border: 1px solid gray;
     background-color: lightgray;
