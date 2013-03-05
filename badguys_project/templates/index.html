@@ -1,10 +1,5 @@
 {% extends "base.html" %}
 
-{% block header %}
-<h1>Shiny, Let's Be Bad Guys: Exploiting and Mitigating the Top 10 Web App Vulnerabilities</h1>
-<h2>Mike Pirnat, David Stanek</h2>
-{% endblock %}
-
 {% block content %}
 
 <div class="description">
@@ -13,22 +8,16 @@
     new web app--you have to take the security of your application, your users,
     and your data seriously. You'll get into the mindset of the bad guys as we
     discuss, exploit, and mitigate the most common web app security flaws in a
-    controlled environment. See the <a href="{% url 'about' %}">full abstract</a>.
-    </p>
+    controlled environment.</p>
+    <p>See the <a href="{% url 'about' %}">full abstract</a>.</p>
 </div>
 
-<div id="toc">
-    <ol>
-        <li><a href="{% url 'injection' %}">A1: Injection</a></li>
-        <li>A2: Broken Authentication and Session Management</li>
-        <li><a href="{% url 'xss' %}">A3: Cross-Site Scripting (XSS)</a></li>
-        <li><a href="{% url 'direct-object-references' %}">A4: Insecure Direct Object References</a></li>
-        <li><a href="{% url 'misconfig' %}">A5: Security Misconfiguration</a></li>
-        <li><a href="{% url 'exposure' %}">A6: Sensitive Data Exposure</a></li>
-        <li><a href="{% url 'access-control' %}">A7: Missing Function-Level Access Control</a></li>
-        <li><a href="{% url 'csrf' %}">A8: Cross-Site Request Forgery (CSRF)</a></li>
-        <li><a href="{% url 'redirects' %}">A10: Unvalidated Redirects and Forwards</a></li>
-    </ol>
-</div>
+{% endblock %}
 
+{% block extra_topnav %}
+<li><a href="{% url 'injection' %}">Next</a></li>
+{% endblock %}
+
+{% block extra_botnav %}
+<li><a href="{% url 'injection' %}">Next</a></li>
 {% endblock %}
