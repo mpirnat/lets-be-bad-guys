@@ -7,8 +7,17 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Unable to Forward Request</h1>
 
     <p>Unable to forward to '{{ fwd }}'.  Try again?</p>
 
+{% endblock %}
+
+{% block extra_topnav %}
+<li><a href="{% url 'redirects-redirects' %}">Prev</a></li>
+<li><a href="{% url 'redirects-redirects' %}">Next</a></li>
+{% endblock %}
+
+{% block extra_botnav %}
+<li><a href="{% url 'redirects-redirects' %}">Prev</a></li>
+<li><a href="{% url 'redirects-redirects' %}">Next</a></li>
 {% endblock %}

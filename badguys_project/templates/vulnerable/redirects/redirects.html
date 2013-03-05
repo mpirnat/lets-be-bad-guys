@@ -7,8 +7,6 @@
 {% endblock %}
 
 {% block content %}
-    <h1>External Redirects</h1>
-
     <p>It's a pretty common practice to have a page that will redirect to some
     other URL based on some kind of query parameter... It might be a login page
     that needs to redirect back to wherever the user was when before they
@@ -23,4 +21,14 @@
     <a href="{% url 'redirects-redirect' %}?url=%2Fredirects-and-forwards%2Fredirects">such a page</a>.
     Attack it and make it go somewhere off site.</p>
 
+{% endblock %}
+
+{% block extra_topnav %}
+<li><a href="{% url 'redirects' %}">Prev</a></li>
+<li><a href="{% url 'redirects-forwards' %}">Next</a></li>
+{% endblock %}
+
+{% block extra_botnav %}
+<li><a href="{% url 'redirects' %}">Prev</a></li>
+<li><a href="{% url 'redirects-forwards' %}">Next</a></li>
 {% endblock %}

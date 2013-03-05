@@ -7,10 +7,17 @@
 {% endblock %}
 
 {% block content %}
-    <h1>A Happy Little Page</h1>
-
     <p>This is a happy little page.</p>
 
     <p>It is most certainly not allowing you any 'admin' level access.</p>
+{% endblock %}
 
+{% block extra_topnav %}
+<li><a href="{% url 'access-control' %}">Prev</a></li>
+<li><a href="{% url 'access-control' %}">Next</a></li>
+{% endblock %}
+
+{% block extra_botnav %}
+<li><a href="{% url 'access-control' %}">Prev</a></li>
+<li><a href="{% url 'access-control' %}">Next</a></li>
 {% endblock %}

@@ -39,3 +39,13 @@
         {% endif %}
     {% endif %}
 {% endblock %}
+
+{% block extra_topnav %}
+<li><a href="{% url 'injection' %}">Prev</a></li>
+<li><a href="{% url 'injection-file-access' %}">Next</a></li>
+{% endblock %}
+
+{% block extra_botnav %}
+<li><a href="{% url 'injection' %}">Prev</a></li>
+<li><a href="{% url 'injection-file-access' %}">Next</a></li>
+{% endblock %}

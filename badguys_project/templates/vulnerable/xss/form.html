@@ -39,3 +39,13 @@ property.</p>
 
 <div id="result"></div>
 {% endblock %}
+
+{% block extra_topnav %}
+<li><a href="{% url 'xss-path' 'your-path-here' %}">Prev</a></li>
+<li><a href="{% url 'xss-query' %}">Next</a></li>
+{% endblock %}
+
+{% block extra_botnav %}
+<li><a href="{% url 'xss-path' 'your-path-here' %}">Prev</a></li>
+<li><a href="{% url 'xss-query' %}">Next</a></li>
+{% endblock %}

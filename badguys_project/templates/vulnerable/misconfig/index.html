@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% block title %}{{ block.super }}Security Misconfiguration{% endblock %}
+
 {% block header %}
     <h2>Security Misconfiguration</h2>
 {% endblock %}
@@ -11,4 +13,14 @@
         <li><a href="{% url 'misconfig-boom' %}">Debug enabled in production</a></li>
     </ul>
     <div class="notes">What is an attacker could inject code to make the app fail when connecting to the database?</div>
+{% endblock %}
+
+{% block extra_topnav %}
+<li><a href="{% url 'direct-object-references' %}">Prev</a></li>
+<li><a href="{% url 'exposure' %}">Next</a></li>
+{% endblock %}
+
+{% block extra_botnav %}
+<li><a href="{% url 'direct-object-references' %}">Prev</a></li>
+<li><a href="{% url 'exposure' %}">Next</a></li>
 {% endblock %}

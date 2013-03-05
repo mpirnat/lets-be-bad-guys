@@ -15,7 +15,6 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Malicious Code Execution</h1>
     <p>There are several places in our codebase where we could be susceptible
     to malicious code execution attacks. Why? Well we are using eval and exec
     (among other things) and probably are not validating the input
@@ -44,4 +43,14 @@
         <input name="first_name">
         <input type="submit">
     </form>
+{% endblock %}
+
+{% block extra_topnav %}
+<li><a href="{% url 'injection-file-access' %}">Prev</a></li>
+<li><a href="{% url 'xss' %}">Next</a></li>
+{% endblock %}
+
+{% block extra_botnav %}
+<li><a href="{% url 'injection-file-access' %}">Prev</a></li>
+<li><a href="{% url 'xss' %}">Next</a></li>
 {% endblock %}

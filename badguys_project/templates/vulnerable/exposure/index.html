@@ -1,4 +1,6 @@
-{% extends 'base.html' %}
+{% extends 'exercise_base.html' %}
+
+{% block title %}{{ block.super }}Sensitive Data Exposure{% endblock %}
 
 {% block header %}
     <h2>Sensitive Data Exposure</h2>
@@ -21,4 +23,14 @@ the request when the form below is submitted.</p>
     <p><input type="submit"></p>
 </form>
 
+{% endblock %}
+
+{% block extra_topnav %}
+<li><a href="{% url 'misconfig' %}">Prev</a></li>
+<li><a href="{% url 'access-control' %}">Next</a></li>
+{% endblock %}
+
+{% block extra_botnav %}
+<li><a href="{% url 'misconfig' %}">Prev</a></li>
+<li><a href="{% url 'access-control' %}">Next</a></li>
 {% endblock %}

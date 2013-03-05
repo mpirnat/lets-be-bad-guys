@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+{% block title %}{{ block.super }}: Injection{% endblock %}
 {% block header %}
     <h2>Injection Attacks</h2>
 {% endblock %}
@@ -11,4 +12,15 @@
         <li>Insecure <a href="{% url 'injection-file-access' %}">file access</a></li>
         <li>Malicious <a href="{% url 'injection-code-execution' %}">code-execution</a></li>
     </ul>
+{% endblock %}
+
+{% block extra_topnav %}
+<li><a href="{% url 'home' %}">Prev</a></li>
+<li><a href="{% url 'injection-sql' %}">Next</a></li>
+{% endblock %}
+
+{% block extra_botnav %}
+
+<li><a href="{% url 'home' %}">Prev</a></li>
+<li><a href="{% url 'injection-sql' %}">Next</a></li>
 {% endblock %}

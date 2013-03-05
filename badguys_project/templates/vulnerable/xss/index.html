@@ -12,3 +12,13 @@
         <li>Insecure <a href="{% url 'xss-query' %}?qs=awesome">query params</a></li>
     </ul>
 {% endblock %}
+
+{% block extra_topnav %}
+<li><a href="{% url 'injection-code-execution' %}">Prev</a></li>
+<li><a href="{% url 'xss-path' 'your-path-here' %}">Next</a></li>
+{% endblock %}
+
+{% block extra_botnav %}
+<li><a href="{% url 'injection-code-execution' %}">Prev</a></li>
+<li><a href="{% url 'xss-path' 'your-path-here' %}">Next</a></li>
+{% endblock %}

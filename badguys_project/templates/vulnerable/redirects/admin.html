@@ -7,10 +7,17 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Super-Secret Admin Interface</h1>
 
     <p>Welcome to the super-secret admin interface!</p>
 
     <p>I sure hope no bad guys ever get in here!</p>
 
+{% endblock %}
+
+{% block extra_topnav %}
+<li><a href="{% url 'redirects-forwards' %}">Prev</a></li>
+{% endblock %}
+
+{% block extra_botnav %}
+<li><a href="{% url 'redirects-forwards' %}">Prev</a></li>
 {% endblock %}

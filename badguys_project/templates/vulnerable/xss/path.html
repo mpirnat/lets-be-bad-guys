@@ -41,3 +41,13 @@ JavaScript that will change this page title to <i>PLZ HACK MY USERS</i>.</p>
     <li>document.title is the property that you want to modify.</li>
 </ul>
 {% endblock %}
+
+{% block extra_topnav %}
+<li><a href="{% url 'xss' %}">Prev</a></li>
+<li><a href="{% url 'xss-form' %}">Next</a></li>
+{% endblock %}
+
+{% block extra_botnav %}
+<li><a href="{% url 'xss' %}">Prev</a></li>
+<li><a href="{% url 'xss-form' %}">Next</a></li>
+{% endblock %}

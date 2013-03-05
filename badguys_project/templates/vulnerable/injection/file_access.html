@@ -20,6 +20,17 @@
     picture. Instead of using an id or token these sites sometimes use partial
     file paths. A clever individual could spot this and try to get our DB passwords,
     <code>/etc/passwd</code> file or other sensitive data on our filesystem.</p>
+
     <p>Simple exercise: get the <code>settings.py</code> file to display on the screen.</p>
     Example link: <a href="{% url 'user-profile' %}?p=hacker.jpg">{% url 'user-profile' %}?p=hacker.jpg</a>
+{% endblock %}
+
+{% block extra_topnav %}
+<li><a href="{% url 'injection-sql' %}">Prev</a></li>
+<li><a href="{% url 'injection-code-execution' %}">Next</a></li>
+{% endblock %}
+
+{% block extra_botnav %}
+<li><a href="{% url 'injection-sql' %}">Prev</a></li>
+<li><a href="{% url 'injection-code-execution' %}">Next</a></li>
 {% endblock %}

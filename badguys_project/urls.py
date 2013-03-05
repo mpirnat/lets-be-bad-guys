@@ -27,6 +27,7 @@ urlpatterns += patterns('badguys.vulnerable.views',
         name="injection-code-execution"),
 
     # Exercise 02 - Broken Authentication & Session Management
+    # No exercises, discussion only?
 
     # Exercise 03 - XSS Attacks
     url(r'^cross-site-scripting$',

@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% block title %}{{ block.super }}: Unvalidated Redirects and Forwards{% endblock %}
+
 {% block header %}
     <h2>Unvalidated Redirects and Forwards</h2>
 {% endblock %}
@@ -7,7 +9,17 @@
 {% block content %}
     <p class="details">Maybe some details here</p>
     <ul>
-        <li><a href="{% url 'redirects-redirects' %}">external redirects</a></li>
-        <li>Insecure <a href="{% url 'redirects-forwards' %}">forwards/bypass access control</a></li>
+        <li><a href="{% url 'redirects-redirects' %}">External redirects</a></li>
+        <li><a href="{% url 'redirects-forwards' %}">Insecure forwards/bypass access control</a></li>
     </ul>
+{% endblock %}
+
+{% block extra_topnav %}
+<li><a href="{% url 'csrf-third-party' %}">Prev</a></li>
+<li><a href="{% url 'redirects-redirects' %}">Next</a></li>
+{% endblock %}
+
+{% block extra_botnav %}
+<li><a href="{% url 'csrf-third-party' %}">Prev</a></li>
+<li><a href="{% url 'redirects-redirects' %}">Next</a></li>
 {% endblock %}

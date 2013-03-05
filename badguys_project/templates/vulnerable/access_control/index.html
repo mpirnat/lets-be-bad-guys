@@ -7,8 +7,6 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Missing Function Level Access Control</h1>
-
     <p>An application might have a privileged set of functionality accessible
     by URL or parameter that isn't properly protected.  All you have to do is
     adjust the URL or query string parameter to probe for vulnerabilities.</p>
@@ -16,5 +14,14 @@
     <p>Our vulnerable codebase has
     <a href="{% url 'access-control-missing' %}?action=happy">this kind of flaw</a>.
     Exploit it to access our super-secret 'admin' area.</p>
+{% endblock %}
 
+{% block extra_topnav %}
+<li><a href="{% url 'exposure' %}">Prev</a></li>
+<li><a href="{% url 'access-control-missing' %}?action=happy">Next</a></li>
+{% endblock %}
+
+{% block extra_botnav %}
+<li><a href="{% url 'exposure' %}">Prev</a></li>
+<li><a href="{% url 'access-control-missing' %}?action=happy">Next</a></li>
 {% endblock %}
