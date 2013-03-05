@@ -1,3 +1,15 @@
 {% extends "base.html" %}
 
 {% block title %}Let's Be Bad Guys - Exercise: {% endblock %}
+
+{% block extra_js %}
+<script type="text/javascript">
+    $(function() {
+        $('#show_solution').click(function() {
+            $('div.hints').hide();
+            $('div.solution').show();
+            return false;
+        });
+    });
+</script>
+{% endblock %}

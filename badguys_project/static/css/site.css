@@ -1,14 +1,24 @@
-.answer, .hints {
-    border: 1px solid gray;
-    background-color: lightgray;
-    display: inline-block;
-    width: 50%;
+.answer, .hints, .solution {
+    width: 75%;
     margin-top: 10px;
     padding: 10px;
 }
 
 .answer p {
     color: green;
+    margin: 0;
+}
+
+.solution {
+    display: none;
+}
+
+.solution h4 {
+    margin: 0;
+}
+
+.solution p {
+    color: darkblue;
     margin: 0;
 }
 

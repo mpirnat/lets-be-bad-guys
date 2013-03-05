@@ -16,7 +16,7 @@ def norm(s):
 
 
 def sql(request):
-    expected_sql = ("SELECT id from Users where first_name = ''; "
+    solution_sql = ("SELECT id from Users where first_name = ''; "
                     "DROP TABLE Users;--';")
     expected_sql = "'; DROP TABLE Users;--"
 
@@ -24,7 +24,7 @@ def sql(request):
     correct = (norm(name) == norm(expected_sql))
 
     return render(request, 'vulnerable/injection/sql.html',
-            {'name': name, 'correct': correct})
+            {'name': name, 'correct': correct, 'solution_sql': solution_sql})
 
 
 def file_access(request):
