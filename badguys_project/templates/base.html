@@ -1,33 +1,123 @@
 <!DOCTYPE html>
-<html lang="en-us">
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/site.css">
-        <link href="{{ STATIC_URL }}images/favicon.ico" rel="shortcut icon">
-        <title>{% block title %}Shiny, Let's Be Bad Guys: Exploiting and Mitigating the Top 10 Web App Vulnerabilities{% endblock %}</title>
-        {% block extra_head %}{% endblock %}
-    </head>
-    <body>
-        <header>
-            {% block header %}
-            {% endblock %}
-            <nav>
-                <ul>
-                    <li><a href="#">Some nav here</a></li>
-                </ul>
-            </nav>
-        </header>
-        <div id="content">
-            {% block content %}
-            {% endblock %}
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+
+  <title>{% block title %}Shiny, Let's Be Bad Guys: Exploiting and Mitigating the Top 10 Web App Vulnerabilities{% endblock %}</title>
+
+  <link rel="shortcut icon" href="{{ STATIC_URL }}images/favicon.ico">
+  <link rel="stylesheet" href="{{ STATIC_URL }}css/normalize.css">
+  <link rel="stylesheet" href="{{ STATIC_URL }}css/foundation.min.css">
+
+  <script src="{{ STATIC_URL}}js/vendor/custom.modernizr.js"></script>
+
+  {% block extra_head %}{% endblock %}
+
+</head>
+<body>
+
+
+<!-- Header and Nav -->
+  <div class="row">
+      <div class="large-12 columns">
+      {% block header %}
+      {% endblock %}
+  <div class="row">
+
+    <div class="large-3 columns">
+      <h1><img src="http://placehold.it/400x100&text=Logo" /></h1>
+    </div>
+
+    <div class="large-9 columns">
+      <ul class="inline-list right">
+        <li><a href="#">Section 1</a></li>
+        <li><a href="#">Section 2</a></li>
+        <li><a href="#">Section 3</a></li>
+        <li><a href="#">Section 4</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- End Header and Nav -->
+
+
+  <div class="row">
+
+    <!-- Main Content Section -->
+    <!-- This has been source ordered to come first in the markup (and on
+    small devices) but to be to the right of the nav on larger screens -->
+    <div class="large-9 push-3 columns">
+
+        {% block content %}
+        {% endblock %}
+
+    </div>
+
+    <!-- Nav Sidebar -->
+    <!-- This is source ordered to be pulled to the left on larger screens -->
+    <div class="large-3 pull-9 columns">
+
+      <ul class="side-nav">
+        <li><a href="#">Section 1</a></li>
+        <li><a href="#">Section 2</a></li>
+        <li><a href="#">Section 3</a></li>
+        <li><a href="#">Section 4</a></li>
+        <li><a href="#">Section 5</a></li>
+        <li><a href="#">Section 6</a></li>
+      </ul>
+
+      <p><img src="http://placehold.it/320x240&text=Ad" /></p>
+
+    </div>
+
+  </div>
+
+
+  <!-- Footer -->
+
+  <footer class="row">
+    <div class="large-12 columns">
+      <hr />
+      <div class="row">
+        <div class="large-6 columns">
+            <p>Copyright &copy; 2013
+                <a href="http://mike.pirnat.com/">Mike Pirnat</a> &amp;
+                <a href="http://traceback.org/">David Stanek</a>
+            </p>
         </div>
-        <footer>
-        <p>
-            Copyright &copy; 2013
-            <a href="http://mike.pirnat.com/">Mike Pirnat</a> &amp;
-            <a href="http://traceback.org">David Stanek</a>
-        </p>
-        <p><a href="{% url 'about' %}">About</a></p>
-        </footer>
-    </body>
+        <div class="large-6 columns">
+          <ul class="inline-list right">
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="#">Section 1</a></li>
+            <li><a href="#">Section 2</a></li>
+            <li><a href="#">Section 3</a></li>
+            <li><a href="#">Section 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="{{ STATIC_URL }}js/vendor/zepto.js"></script>
+  <script src="{{ STATIC_URL }}js/foundation/foundation.js"></script>
+  <!--
+  <script src="js/foundation/foundation.cookie.js"></script>
+  <script src="js/foundation/foundation.alerts.js"></script>
+  <script src="js/foundation/foundation.clearing.js"></script>
+  <script src="js/foundation/foundation.dropdown.js"></script>
+  <script src="js/foundation/foundation.forms.js"></script>
+  <script src="js/foundation/foundation.joyride.js"></script>
+  <script src="js/foundation/foundation.magellan.js"></script>
+  <script src="js/foundation/foundation.orbit.js"></script>
+  <script src="js/foundation/foundation.placeholder.js"></script>
+  <script src="js/foundation/foundation.reveal.js"></script>
+  <script src="js/foundation/foundation.section.js"></script>
+  <script src="js/foundation/foundation.tooltips.js"></script>
+  <script src="js/foundation/foundation.topbar.js"></script>
+  -->
+  <!-- Application Javascript, safe to override -->
+</body>
 </html>
