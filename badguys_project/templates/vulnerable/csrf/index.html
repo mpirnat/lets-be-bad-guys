@@ -5,14 +5,19 @@
 {% endblock %}
 
 {% block content %}
-    <p class="details">Maybe some details here</p>
+    <p>A CSRF attack forces a logged-on victim's browser to send a forged HTTP
+    request, including the victim's session cookie and any other automatically
+    included authentication information, to a vulnerable web application. This
+    allows the attacker to force the victim's browser to generate requests the
+    vulnerable application thinks are legitimate requests from the victim.</p>
+
     <ul>
         <li><a href="{% url 'csrf-image' %}">CSRF via image GET</a></li>
         <li><a href="{% url 'csrf-third-party' %}">CSRF from a third party site</a></li>
     </ul>
 {% endblock %}
-{% block extra_topnav %}
 
+{% block extra_topnav %}
 <li><a href="{% url 'access-control' %}">Prev</a></li>
 <li><a href="{% url 'csrf-image' %}">Next</a></li>
 {% endblock %}

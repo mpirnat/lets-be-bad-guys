@@ -7,12 +7,18 @@
 {% endblock %}
 
 {% block content %}
-    <p class="details">Examples of common carelessness</p>
+
+    <p>It's often easy to misconfigure or neglect to set appropriate security
+    settings in your application.  Some examples of common carelessness
+    include:</p>
+
     <ul>
         <li><a href="?debug=1">The secret Django Debug Toolbar</a></li>
         <li><a href="{% url 'misconfig-boom' %}">Debug enabled in production</a></li>
     </ul>
-    <div class="notes">What is an attacker could inject code to make the app fail when connecting to the database?</div>
+
+    <p class="notes">What if an attacker could inject code to make the app
+        fail when connecting to the database?</p>
 {% endblock %}
 
 {% block extra_topnav %}

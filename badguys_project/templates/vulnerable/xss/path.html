@@ -26,19 +26,19 @@ window.onload = function() {
 {% block content %}
 <p>Many URL dispatching schemes give you the ability to pull data from
 the path and have it passed into your controller. This allows you to set up
-URLs like '/category/{id}' and that you want it to parse the id and pass it
-into the view. Since the path is provided by the user we must make sure it
-doesn't contain anything malicious.</p>
+URLs like <code>/category/{id}</code> and that you want it to parse the id
+and pass it into the view. Since the path is provided by the user we must
+make sure it doesn't contain anything malicious.</p>
 
 <p>In this exercise, manipulate the URL path to inject
-JavaScript that will change this page title to <i>PLZ HACK MY USERS</i>.</p>
+JavaScript that will change this page title to <code>PLZ HACK MY USERS</code>.</p>
 
 <div id="result"></div>
 
 <p>Helpful hints:</p>
 <ul>
     <li>Look at the HTML and compare it to the browser path.</li>
-    <li>document.title is the property that you want to modify.</li>
+    <li><code>document.title</code> is the property that you want to modify.</li>
 </ul>
 {% endblock %}
 

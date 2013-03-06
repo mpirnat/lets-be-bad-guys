@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
 
 {% block header %}
-    <h2>Cross Site Scripting Attacks</h2>
+    <h2>Cross Site Scripting (XSS) Attacks</h2>
 {% endblock %}
 
 {% block content %}
-    <p class="details">Maybe some details here</p>
+
+    <p>Cross Site Scripting (XSS) attacks are all about injecting some kind of
+    malicious Javascript into the page and can come from several different
+    paths; we'll explore these:</p>
+
     <ul>
         <li>Insecure <a href="{% url 'xss-path' 'your-path-here' %}">path matching</a></li>
         <li>Insecure <a href="{% url 'xss-form' %}?qs=prepopulated%20value">form fields</a></li>
@@ -14,11 +18,11 @@
 {% endblock %}
 
 {% block extra_topnav %}
-<li><a href="{% url 'injection-code-execution' %}">Prev</a></li>
+<li><a href="{% url 'broken-auth' %}">Prev</a></li>
 <li><a href="{% url 'xss-path' 'your-path-here' %}">Next</a></li>
 {% endblock %}
 
 {% block extra_botnav %}
-<li><a href="{% url 'injection-code-execution' %}">Prev</a></li>
+<li><a href="{% url 'broken-auth' %}">Prev</a></li>
 <li><a href="{% url 'xss-path' 'your-path-here' %}">Next</a></li>
 {% endblock %}
