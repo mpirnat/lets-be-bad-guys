@@ -71,9 +71,6 @@ def code_execution(request):
     return render(request, 'vulnerable/injection/code_execution.html',
             {'first_name': request.POST.get('first_name', ''), 'msg': msg})
 
-    # maybe put this is some sort of hints
-    # solution: >>> import base64
-    #           >>> base64.encodestring("file('/tmp/p0wned.txt', 'w').write('boom!')")
 
 ## 02 - Broken Authentication & Session Management
 
