@@ -17,27 +17,34 @@
 
     <form method="POST">
         <label for="name">Name</label>
-        <input name="name">
+        <input name="name" value="{{ name }}">
         <input type="submit">
     </form>
 
     {% if name %}
         {% if correct %}
-            <div class="answer">
+            <div class="answer panel">
                 <p>Correct. You are successfully creating a bad query:</p>
-                <code>{{ name }}</code>
+                <code>{{ solution_sql }}</code>
             </div>
         {% else %}
-            <div class="hints">
+            <div class="hints panel">
                 <p>Almost. Keep trying, you'll get it. Helpful hints:</p>
                 <ul>
                     <li>end the original query</li>
                     <li>end your input with '<code>--</code>' (SQL comment)</li>
                     <li><a href="http://xkcd.com/327/">solved by a cartoon?</a></li>
                 </ul>
+                <a class="tiny button" id="show_solution">show solution</a>
             </div>
         {% endif %}
     {% endif %}
+    <div class="solution panel">
+        <h4>Solution</h4>
+        <p>Enter the following into the textbox:</p>
+        <p><code>'; drop table users;--</code></p>
+        <a class="tiny button" id="do_solution">do it</a>
+    </div>
 {% endblock %}
 
 {% block extra_topnav %}
@@ -48,4 +55,16 @@
 {% block extra_botnav %}
 <li><a href="{% url 'injection' %}">Prev</a></li>
 <li><a href="{% url 'injection-file-access' %}">Next</a></li>
+{% endblock %}
+
+{% block extra_js %}
+{{ block.super }}
+<script type="text/javascript">
+    $(function() {
+        $('#do_solution').click(function() {
+            $('input[name="name"]').val("'; drop table users;--");
+            return false;
+        });
+    });
+</script>
 {% endblock %}

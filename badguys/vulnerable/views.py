@@ -16,7 +16,7 @@ def norm(s):
 
 
 def sql(request):
-    expected_sql = ("SELECT id from Users where first_name = ''; "
+    solution_sql = ("SELECT id from Users where first_name = ''; "
                     "DROP TABLE Users;--';")
     expected_sql = "'; DROP TABLE Users;--"
 
@@ -24,7 +24,7 @@ def sql(request):
     correct = (norm(name) == norm(expected_sql))
 
     return render(request, 'vulnerable/injection/sql.html',
-            {'name': name, 'correct': correct})
+            {'name': name, 'correct': correct, 'solution_sql': solution_sql})
 
 
 def file_access(request):
@@ -41,10 +41,13 @@ def user_profile(request):
     if filename.startswith('/'):
         msg = urllib.quote_plus("Did you really think it would be "
                 "that easy? Bonus points if you see the XSS flaw.")
-        location = '/danger/vulnerable/file-access?msg=' + msg
         return redirect(reverse('injection-file-access') + "?msg=" + msg)
 
-    data = file(os.path.join(base_path, filename)).read()
+    try:
+        data = file(os.path.join(base_path, filename)).read()
+    except IOError:
+        return render(request, 'vulnerable/injection/user_profile.html')
+
     return HttpResponse(data, content_type=mimetypes.guess_type(filename)[0])
 
 
@@ -53,14 +56,17 @@ def code_execution(request):
     first_name = ''
     if request.method == 'POST':
         first_name = request.POST.get('first_name', '')
-        exec(base64.decodestring(first_name))
         try:
-            data = open('/tmp/p0wned.txt').read()
+            exec(base64.decodestring(first_name))
+        except:
+            pass
+        try:
+            data = open('p0wned.txt').read()
             msg = ('Good job! You successfully p0wned yourself. You '
                    'wrote: %s' % data)
         except IOError:
             data = ''
-            msg = 'You failed to write a file.'
+            msg = 'You failed to write to p0wed.txt.'
 
     return render(request, 'vulnerable/injection/code_execution.html',
             {'first_name': request.POST.get('first_name', ''), 'msg': msg})
