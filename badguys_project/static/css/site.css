@@ -31,11 +31,16 @@
 }
 
 #content {
+    padding-left: 3em;
 	margin-bottom: 2em;
 }
 
 #content ul {
 	list-style-position: inside;
+}
+
+#content li {
+    margin-left: 1em;
 }
 
 aside ul {
