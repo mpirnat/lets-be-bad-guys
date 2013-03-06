@@ -6,36 +6,21 @@
     <h1>Malicious Code Execution</h1>
 {% endblock %}
 
-{% block extra_head %}
-    {% if msg %}
-        <script type="text/javascript">
-            alert('{{msg}}');
-        </script>
-    {% endif %}
-{% endblock %}
-
 {% block content %}
-    <p>There are several places in our codebase where we could be susceptible
-    to malicious code execution attacks. Why? Well we are using eval and exec
-    (among other things) and probably are not validating the input
-    correctly.</p>
+    <p>There are often places where applications could be susceptible to
+    malicious code execution attacks. Why? They use unsafe data formats and use
+    eval and exec (among other things). All this and they are probably are not
+    validating the input correctly.</p>
 
     <p>This attack is much harder, but very powerful. Imagine being able to run
     arbitrary snippets of code from outside of our firewall.</p>
 
     <p>Simple exercise: you're clever and you notice a base64 string in a
     hidden form field. Using a hacker friendly tool you discover that the
-    base64 string is JSON that seems to be evaled or execed and dropped into
-    the JavaScript block on the resulting page. Let's take advantage of the
-    exec and write to a file named <code>/tmp/p0wned.txt</code>. (I made this a
-    little easier by using the GET method for the form.)</p>
-
-    <p>Helpful hints:
-        <ul>
-          <li>Use a Python one-liner to open and write to a file.</li>
-          <li>Don't forget the base64.</li>
-        </ul>
-    </p>
+    base64 string is Python dictionary that seems to be evaled or execed and
+    dropped into the JavaScript block on the resulting page. Let's take
+    advantage of the exec and write to a file named <code>p0wned.txt</code>.
+    Use a Python one-liner to open and write to the file.</p>
 
     <h2>Vulnerable Form</h2>
     <form method="POST">
@@ -43,6 +28,27 @@
         <input name="first_name">
         <input type="submit">
     </form>
+
+    {{ request.method}}
+    {% if first_name %}
+        <div class="hints panel">
+            <p>Helpful hints:</p>
+            <ul>
+              <li>Use a Python one-liner to open and write to a file</li>
+              <li>You don't need to specify the directory</li>
+              <li>Don't forget the base64</li>
+              <li>No need to include the newline from the base64 string</li>
+            </ul>
+            <a class="tiny button" id="show_solution">show solution</a>
+        </div>
+    {% endif %}
+    <div class="solution panel">
+        <h4>Solution</h4>
+        <p>Run <code>base64.encodestring("file('p0wned.txt','w').write('boom!')")</code>
+        and copy-n-paste the value into the textbox.</p>
+        <a class="tiny button" id="do_solution">do it</a>
+    </div>
+
 {% endblock %}
 
 {% block extra_topnav %}
@@ -53,4 +59,19 @@
 {% block extra_botnav %}
 <li><a href="{% url 'injection-file-access' %}">Prev</a></li>
 <li><a href="{% url 'xss' %}">Next</a></li>
+{% endblock %}
+
+{% block extra_js %}
+{{ block.super }}
+<script type="text/javascript">
+    $(function() {
+        $('#do_solution').click(function() {
+            $('input[name="first_name"]').val('ZmlsZSgncDB3bmVkLnR4dCcsJ3cnKS53cml0ZSgnYm9vbSEnKQ==');
+            return false;
+        });
+    });
+    {% if msg %}
+        alert('{{msg}}');
+    {% endif %}
+</script>
 {% endblock %}
