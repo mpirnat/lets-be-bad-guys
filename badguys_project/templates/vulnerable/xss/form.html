@@ -6,19 +6,20 @@
     <h1>XSS via Form Field Injection</h1>
 {% endblock %}
 
-{% block extra_head %}
+{% block extra_js %}
+{{ block.super }}
 <script type="text/javascript">
-window.onload = function() {
-    var result = '';
-    var cookie = document.getElementById('cookie').firstChild.nodeValue;
-    if (cookie.search('mc_p_dev') > -1) {
-        result = '<strong>Success!</strong> You have managed to ' +
-            'steal cookies from our user.';
-    } else {
-        result = 'This page has not yet been hacked.';
-    }
-    document.getElementById("result").innerHTML = result;
-};
+    $(function() {
+        var result = '';
+        var cookie = document.getElementById('cookie').firstChild.nodeValue;
+        if (cookie.search('mc_p_dev') > -1) {
+            result = '<strong>Success!</strong> You have managed to ' +
+                'steal cookies from our user.';
+        } else {
+            result = 'This page has not yet been hacked.';
+        }
+        $('#result').html(result);
+    });
 </script>
 {% endblock %}
 

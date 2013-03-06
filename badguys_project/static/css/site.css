@@ -1,5 +1,4 @@
 .answer, .hints, .solution {
-    width: 75%;
     margin-top: 10px;
     padding: 10px;
 }
@@ -48,4 +47,8 @@ hgroup h1 {
 }
 hgroup h2 {
 	font-size: 14pt;
+}
+
+.hidden {
+    display: none;
 }
