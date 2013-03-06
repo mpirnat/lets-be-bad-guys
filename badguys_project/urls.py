@@ -27,7 +27,9 @@ urlpatterns += patterns('badguys.vulnerable.views',
         name="injection-code-execution"),
 
     # Exercise 02 - Broken Authentication & Session Management
-    # No exercises, discussion only?
+    url(r'^broken-auth-and-session-management$',
+        TemplateView.as_view(template_name='vulnerable/broken_auth/index.html'),
+        name='broken-auth'),
 
     # Exercise 03 - XSS Attacks
     url(r'^cross-site-scripting$',
@@ -85,7 +87,9 @@ urlpatterns += patterns('badguys.vulnerable.views',
         name='csrf-gift-card'),
 
     # Exercise 09 - Using Known Vulnerable Components
-    # No exercise, discussion only?
+    url(r'^vulnerable-components$',
+        TemplateView.as_view(template_name='vulnerable/components/index.html'),
+        name='components'),
 
     # Exercise 10 - Unvalidated Redirects & Forwards
     url(r'^redirects-and-forwards$',

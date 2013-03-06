@@ -1,0 +1,27 @@
+{% extends 'exercise_base.html' %}
+
+{% block title %}{{ block.super }}Using Known Vulnerable Components{% endblock %}
+
+{% block header %}
+    <h2>Using Known Vulnerable Components</h2>
+{% endblock %}
+
+{% block content %}
+
+<p>Vulnerable components, such as libraries, frameworks, and other software
+modules almost always run with full privilege. So, if exploited, they can cause
+serious data loss or server takeover. Applications using these vulnerable
+components may undermine their defenses and enable a range of possible attacks
+and impacts.</p>
+
+{% endblock %}
+
+{% block extra_topnav %}
+<li><a href="{% url 'csrf-third-party' %}">Prev</a></li>
+<li><a href="{% url 'redirects' %}">Next</a></li>
+{% endblock %}
+
+{% block extra_botnav %}
+<li><a href="{% url 'csrf-third-party' %}">Prev</a></li>
+<li><a href="{% url 'redirects' %}">Next</a></li>
+{% endblock %}

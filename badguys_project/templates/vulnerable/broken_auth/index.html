@@ -1,0 +1,35 @@
+{% extends 'exercise_base.html' %}
+
+{% block title %}{{ block.super }}Broken Authentication and Session Management{% endblock %}
+
+{% block header %}
+    <h2>Broken Authentication and Session Management</h2>
+{% endblock %}
+
+{% block content %}
+
+<p>Application functions related to authentication and session management are
+often not implemented correctly, allowing attackers to compromise passwords,
+keys, session tokens, or exploit other implementation flaws to assume other
+users' identities.</p>
+
+<p>These kinds of problems often manifest as:</p>
+
+<ul>
+    <li>session IDs in the query string</li>
+    <li>failure to time out sessions (very bad on shared or public computers)</li>
+    <li>transmitting user login credentials insecurely</li>
+    <li>easily guessable, obtained, or overwritten credentials</li>
+</ul>
+
+{% endblock %}
+
+{% block extra_topnav %}
+<li><a href="{% url 'injection-code-execution' %}">Prev</a></li>
+<li><a href="{% url 'xss' %}">Next</a></li>
+{% endblock %}
+
+{% block extra_botnav %}
+<li><a href="{% url 'injection-code-execution' %}">Prev</a></li>
+<li><a href="{% url 'xss' %}">Next</a></li>
+{% endblock %}

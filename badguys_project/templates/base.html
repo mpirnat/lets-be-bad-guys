@@ -23,16 +23,14 @@
 
 
 <!-- Header and Nav -->
-    <div class="row">
-        <div class="large-12 columns">
+    <header class="row">
             <hgroup>
                 <h1>Shiny, Let's Be Bad Guys!</h1>
                 <h2>Exploiting and Mitigating the Top 10 Web App Vulnerabilities</h2>
             </hgroup>
-        </div>
-    </div>
+    </header>
 
-    <div id="topnav" class="row">
+    <nav id="topnav" class="row">
         <div class="large-9 columns large-offset-3">
             <ul class="inline-list right">
                 <li><a href="{% url 'home' %}">Home</a></li>
@@ -40,7 +38,7 @@
                 {% block extra_topnav %}{% endblock %}
             </ul>
         </div>
-    </div>
+    </nav>
 
 <!-- End Header and Nav -->
 
@@ -67,14 +65,14 @@
 
         <ul class="side-nav">
             <li><a href="{% url 'injection' %}">A1: Injection</a></li>
-            <li>A2: Broken Authentication and Session Management</li>
+            <li><a href="{% url 'broken-auth' %}">A2: Broken Authentication and Session Management</a></li>
             <li><a href="{% url 'xss' %}">A3: Cross-Site Scripting (XSS)</a></li>
             <li><a href="{% url 'direct-object-references' %}">A4: Insecure Direct Object References</a></li>
             <li><a href="{% url 'misconfig' %}">A5: Security Misconfiguration</a></li>
             <li><a href="{% url 'exposure' %}">A6: Sensitive Data Exposure</a></li>
             <li><a href="{% url 'access-control' %}">A7: Missing Function-Level Access Control</a></li>
             <li><a href="{% url 'csrf' %}">A8: Cross-Site Request Forgery (CSRF)</a></li>
-            <li>A9: Using Known Vulnerable Components</li>
+            <li><a href="{% url 'components' %}">A9: Using Known Vulnerable Components</a></li>
             <li><a href="{% url 'redirects' %}">A10: Unvalidated Redirects and Forwards</a></li>
         </ul>
 
@@ -92,13 +90,13 @@
 				<a href="http://traceback.org/">David Stanek</a>
 			</p>
 		</div>
-		<div id="botnav" class="large-6 columns">
+		<nav id="botnav" class="large-6 columns">
 			<ul class="inline-list right">
 				<li><a href="{% url 'home' %}">Home</a></li>
 				<li><a href="{% url 'about' %}">About</a></li>
 				{% block extra_botnav %}{% endblock %}
 			</ul>
-		</div>
+		</nav>
     </footer>
   <script src="{{ STATIC_URL }}js/vendor/zepto.js"></script>
   <script src="{{ STATIC_URL }}js/foundation/foundation.js"></script>
