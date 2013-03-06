@@ -8,20 +8,28 @@
 
 {% block content %}
 
-<p>Insufficient transport layer protection problems can manifest in a variety
-of forms.  They all boil down to having sensitive information being passed in
-the clear or too-weakly encrypted.  An observer can harvest login credentials,
-capture and replay cookies, or compromise other sensitive data.</p>
+<p>There are basically two forms of exposure problems: failure to protect data
+at rest, and failure to protect data in transit.</p>
 
-<p>In this exercise a login form is not sufficiently secured; it POSTs the
-user's credentials in the clear.  Start up a proxy on your computer and watch
-the request when the form below is submitted.</p>
+<p>"Data at rest" is what you might have in your database, just sitting around.
+It can be payment information or login credentials that aren't encrypted, or
+are too-weakly encrypted.  Maybe they're hashed, but not correctly salted
+(LinkedIn), or they're MD5s (Evernote) when they should be something stronger
+like SHA-1 or SHA-2 (Evernote).  You can also have issues storing your
+encryption keys or other secret values in insecure ways.</p>
 
-<form action="{% url 'exposure-login' %}" method="POST">
-    <p>User name: <input type="text" name="username"></p>
-    <p>Password: <input type="password" name="password"></p>
-    <p><input type="submit"></p>
-</form>
+<p>"Data in transit" is what you're sending across the wire.  Problems here can
+result from failing to secure the connection between endpoints when sensitive
+data is being transmitted or received.  This could be a login form that doesn't
+POST over HTTPS, or an unsecured payment page that leaks your credit card.  It
+could be a session cookie that's sent in the clear and thus easy pickings for
+anyone else at the coffee shop to steal and use to impersonate you (go look up
+"Firesheep" and be very afraid).  It could even be a password recovery feature
+that emails your password to you in clear text!  Problems can also be caused by
+using too-weak encryption or having an invalid or expired SSL certificate.</p>
+
+<p>We're omitting actual exercises here because proxies like Charles and
+Wireshark won't see traffic going to 127.0.0.1/localhost.</p>
 
 {% endblock %}
 
