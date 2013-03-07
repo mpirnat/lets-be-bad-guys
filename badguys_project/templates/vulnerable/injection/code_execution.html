@@ -9,18 +9,19 @@
 {% block content %}
     <p>There are often places where applications could be susceptible to
     malicious code execution attacks. Why? They use unsafe data formats and use
-    eval and exec (among other things). All this and they are probably are not
-    validating the input correctly.</p>
+    <code>eval</code> and <code>exec</code> (among other things). All this and
+    they are probably are not validating the input correctly.</p>
 
     <p>This attack is much harder, but very powerful. Imagine being able to run
-    arbitrary snippets of code from outside of our firewall.</p>
+    arbitrary snippets of code from outside of your firewall!</p>
 
     <p>Simple exercise: you're clever and you notice a base64 string in a
-    hidden form field. Using a hacker friendly tool you discover that the
-    base64 string is Python dictionary that seems to be evaled or execed and
-    dropped into the JavaScript block on the resulting page. Let's take
-    advantage of the exec and write to a file named <code>p0wned.txt</code>.
-    Use a Python one-liner to open and write to the file.</p>
+    hidden form field. Using a hacker-friendly tool you discover that the
+    base64 string is Python dictionary that seems to be <code>eval</code>ed or
+    <code>exec</code>ed and dropped into the JavaScript block on the resulting
+    page. Let's take advantage of the <code>exec</code> and write to a file
+    named <code>p0wned.txt</code>. Use a Python one-liner to open and write to
+    the file.</p>
 
     <h2>Vulnerable Form</h2>
     <form method="POST">

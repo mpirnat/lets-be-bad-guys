@@ -12,8 +12,8 @@
 
     <ul>
         <li>Insecure <a href="{% url 'xss-path' 'your-path-here' %}">path matching</a></li>
-        <li>Insecure <a href="{% url 'xss-form' %}?qs=prepopulated%20value">form fields</a></li>
         <li>Insecure <a href="{% url 'xss-query' %}?qs=awesome">query params</a></li>
+        <li>Insecure <a href="{% url 'xss-form' %}?qs=prepopulated%20value">form fields</a></li>
     </ul>
 {% endblock %}
 

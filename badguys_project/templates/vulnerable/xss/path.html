@@ -52,10 +52,10 @@ JavaScript that will change this page title to <code>PLZ HACK MY USERS</code>.</
 
 {% block extra_topnav %}
 <li><a href="{% url 'xss' %}">Prev</a></li>
-<li><a href="{% url 'xss-form' %}">Next</a></li>
+<li><a href="{% url 'xss-query' %}?qs=awesome">Next</a></li>
 {% endblock %}
 
 {% block extra_botnav %}
 <li><a href="{% url 'xss' %}">Prev</a></li>
-<li><a href="{% url 'xss-form' %}">Next</a></li>
+<li><a href="{% url 'xss-query' %}?qs=awesome">Next</a></li>
 {% endblock %}

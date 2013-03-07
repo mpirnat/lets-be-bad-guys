@@ -42,11 +42,11 @@ Take that cookie and put it in <code>div#cookie</code> using the element's
 {% endblock %}
 
 {% block extra_topnav %}
-<li><a href="{% url 'xss-path' 'your-path-here' %}">Prev</a></li>
-<li><a href="{% url 'xss-query' %}">Next</a></li>
+<li><a href="{% url 'xss-query' %}?qs=awesome">Prev</a></li>
+<li><a href="{% url 'direct-object-references' %}">Next</a></li>
 {% endblock %}
 
 {% block extra_botnav %}
-<li><a href="{% url 'xss-path' 'your-path-here' %}">Prev</a></li>
-<li><a href="{% url 'xss-query' %}">Next</a></li>
+<li><a href="{% url 'xss-query' %}?qs=awesome">Prev</a></li>
+<li><a href="{% url 'direct-object-references' %}">Next</a></li>
 {% endblock %}
