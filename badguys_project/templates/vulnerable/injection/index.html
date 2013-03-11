@@ -6,7 +6,9 @@
 {% endblock %}
 
 {% block content %}
-    <p class="details">Maybe some details here</p>
+    <p>Injection attacks involve getting untrusted input into an interpreter
+    for execution.  They can take on many different forms and can attempt entry
+    through many different channels.</p>
     <ul>
         <li><a href="{% url 'injection-sql' %}">SQL Injection</a></li>
         <li>Insecure <a href="{% url 'injection-file-access' %}">file access</a></li>
