@@ -144,7 +144,10 @@ Or as an alternative, you can always:
 
 #### Slides
 
-Slides will be available; stay tuned for details.
+The slides are now available at either [Slideshare][slides1] or
+[Speaker Deck][slides2].
 
 
 [top10]: https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project
+[slides1]: http://www.slideshare.net/mpirnat/lets-be-bad-guys
+[slides2]: https://speakerdeck.com/mpirnat/shiny-lets-be-bad-guys-exploiting-and-mitigating-the-top-10-web-app-vulnerabilities
