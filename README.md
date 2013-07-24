@@ -1,20 +1,21 @@
 # Shiny, Let's Be Bad Guys: Exploiting and Mitigating the Top 10 Web App Vulnerabilities
 
-The Internet is a dangerous place, filled with evildoers out to attack your code for fun
-or profit, so it's not enough to just ship your awesome new web app--you have to take the
-security of your application, your users, and your data seriously.  You'll get into the
-mindset of the bad guys as we discuss, exploit, and mitigate the most common web app
-security flaws in a controlled environment.
+The Internet is a dangerous place, filled with evildoers out to attack your code
+for fun or profit, so it's not enough to just ship your awesome new web app--you
+have to take the security of your application, your users, and your data
+seriously.  You'll get into the mindset of the bad guys as we discuss, exploit,
+and mitigate the most common web app security flaws in a controlled environment.
 
 We'll discuss each kind of the most prevalent security flaws at the theoretical
 level, then using a specially-crafted, deliberately vulnerable Django app,
 individuals or pairs will carry out exploits against these flaws, and we'll
 illustrate solutions to mitigate each kind of attack.
 
-This repository contains a deliberately-vulnerable website and exercises for learning
-about different kinds of attacks.
+This repository contains a deliberately-vulnerable website and exercises for
+learning about different kinds of attacks.
 
-We'll be using the [OWASP Top 10][top10] as our topic roadmap, addressing subjects such as:
+We'll be using the [OWASP Top 10][top10] as our topic roadmap, addressing
+subjects such as:
 
  * Injection attacks
  * Cross-Site Scripting (XSS)
@@ -50,8 +51,8 @@ First, make sure you have all of the following items installed.
 
 #### Git
 
-You’ll need Git to check out the code repository that we’ll be working with.
-You can download it from [http://git-scm.com](http://git-scm.com "Git").
+You’ll need Git to check out the code repository that we’ll be working with. You
+can download it from [http://git-scm.com](http://git-scm.com "Git").
 
 #### Python
 
@@ -62,10 +63,11 @@ don’t have Python, you can download it from
 
 #### Pip
 
-It’s nicer than easy_install, especially for installing project requirements.
-If you don’t have Pip, you can get it by running:
+It’s nicer than easy_install, especially for installing project requirements. If
+you don’t have Pip, you can get it by running:
 
-    $ sudo easy_install pip
+    $ curl -O https://raw.github.com/pypa/pip/master/contrib/get-pip.py
+    $ sudo python get-pip.py
 
 #### Virtualenv
 
@@ -83,8 +85,7 @@ Create the virtual environment:
 Activate the virtual environment; this puts you into the “sandbox” where you
 won’t interfere with other Python apps or your main system Python:
 
-    $ cd badguys
-    $ source /bin/activate
+    $ cd badguys $ source /bin/activate
 
 Clone a copy of the application repository:
 
@@ -92,12 +93,12 @@ Clone a copy of the application repository:
 
 Install the application’s dependencies:
 
-    $ cd src
-    $ pip install -r requirements.txt
+    $ cd src $ pip install -r requirements.txt
 
 Since this application contains some real, live vulnerabilities, you may want to
 turn off your wi-fi or network connection at this point to protect yourself from
-potential malicious activity.
+potential malicious activity.  (This isn't a problem if you're only listening on
+127.0.0.1, but is for real if you tend to listen on 0.0.0.0!)
 
 Start up the vulnerable application:
 
@@ -139,13 +140,12 @@ string of a URL.  A convenient shortcut is available:
 Or as an alternative, you can always:
 
     $ python
-    >>> import urllib
-    >>> urllib.quote(“...”)
+    >>> import urllib urllib.quote(“...”)
 
 #### Slides
 
-The slides are now available at either [Slideshare][slides1] or
-[Speaker Deck][slides2].
+The slides are now available at either [Slideshare][slides1] or [Speaker
+Deck][slides2].
 
 
 [top10]: https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project
