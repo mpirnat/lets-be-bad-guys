@@ -182,12 +182,11 @@ def show_toolbar(request):
             request.POST.get('debug') or \
             request.COOKIES.get('debug'):
         return True
+    return False
 
 DEBUG_TOOLBAR_CONFIG = {
-        'SHOW_TOOLBAR_CALLBACK': show_toolbar
+        'SHOW_TOOLBAR_CALLBACK': 'badguys_project.settings.show_toolbar'
 }
-
-del show_toolbar
 
 # }}}
 
