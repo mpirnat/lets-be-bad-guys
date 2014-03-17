@@ -85,7 +85,8 @@ Create the virtual environment:
 Activate the virtual environment; this puts you into the “sandbox” where you
 won’t interfere with other Python apps or your main system Python:
 
-    $ cd badguys $ source /bin/activate
+    $ cd badguys
+    $ source /bin/activate
 
 Clone a copy of the application repository:
 
@@ -93,7 +94,8 @@ Clone a copy of the application repository:
 
 Install the application’s dependencies:
 
-    $ cd src $ pip install -r requirements.txt
+    $ cd src
+    $ pip install -r requirements.txt
 
 Since this application contains some real, live vulnerabilities, you may want to
 turn off your wi-fi or network connection at this point to protect yourself from
@@ -140,7 +142,8 @@ string of a URL.  A convenient shortcut is available:
 Or as an alternative, you can always:
 
     $ python
-    >>> import urllib urllib.quote(“...”)
+    >>> import urllib
+    >>> urllib.quote("...")
 
 #### Slides
 
