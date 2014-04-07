@@ -86,7 +86,7 @@ Activate the virtual environment; this puts you into the “sandbox” where you
 won’t interfere with other Python apps or your main system Python:
 
     $ cd badguys
-    $ source /bin/activate
+    $ source ./bin/activate
 
 Clone a copy of the application repository:
 
