@@ -12,7 +12,7 @@
     $(function() {
         var result = '';
         var cookie = document.getElementById('cookie').firstChild.nodeValue;
-        if (cookie.search('mc_p_dev') > -1) {
+        if (cookie.search('csrftoken') > -1) {
             result = '<strong>Success!</strong> You have managed to ' +
                 'steal cookies from our user.';
         } else {
