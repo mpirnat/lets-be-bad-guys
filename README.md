@@ -147,10 +147,13 @@ Or as an alternative, you can always:
 
 #### Slides
 
-The slides are now available at either [Slideshare][slides1] or [Speaker
+The 2014 slides are available at [Speaker Deck][slides3].
+
+The 2013 slides are available at either [Slideshare][slides1] or [Speaker
 Deck][slides2].
 
 
 [top10]: https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project
 [slides1]: http://www.slideshare.net/mpirnat/lets-be-bad-guys
 [slides2]: https://speakerdeck.com/mpirnat/shiny-lets-be-bad-guys-exploiting-and-mitigating-the-top-10-web-app-vulnerabilities
+[slides3]: https://speakerdeck.com/mpirnat/shiny-lets-be-bad-guys-exploiting-and-mitigating-the-top-10-web-app-vulnerabilities-2014-edition
