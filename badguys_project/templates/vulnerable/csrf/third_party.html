@@ -48,10 +48,10 @@ $(function() {
         return true;
     }
 
-    var expected_path = 'http://localhost:8000/csrf/gift-card';
+    var allowed_actions = ['http://localhost:8000/csrf/gift-card', 'http://127.0.0.1:8000/csrf/gift-card'];
     $(document).on('submit', 'form', function(e) {
         var $form = $(this);
-        if (!$form.attr('action') || $form.attr('action').indexOf(expected_path) === -1) {
+        if (!$form.attr('action') || allowed_actions.indexOf($form.attr('action')) === -1) {
             return die('Check your form action. It appears to be incorrect. You want the full URL to the giftcard form!');
         }
         if (!$form.attr('method') || $form.attr('method').toUpperCase() != 'POST') {
