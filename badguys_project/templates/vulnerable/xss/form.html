@@ -8,19 +8,7 @@
 
 {% block extra_js %}
 {{ block.super }}
-<script type="text/javascript">
-    $(function() {
-        var result = '';
-        var cookie = document.getElementById('cookie').firstChild.nodeValue;
-        if (cookie.search('csrftoken') > -1) {
-            result = '<strong>Success!</strong> You have managed to ' +
-                'steal cookies from our user.';
-        } else {
-            result = 'This page has not yet been hacked.';
-        }
-        $('#result').html(result);
-    });
-</script>
+<script src="{{STATIC_URL}}js/exercises/xss-form.js"></script>
 {% endblock %}
 
 {% block content %}

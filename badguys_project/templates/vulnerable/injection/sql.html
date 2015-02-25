@@ -39,12 +39,7 @@
             </div>
         {% endif %}
     {% endif %}
-    <div class="solution panel">
-        <h4>Solution</h4>
-        <p>Enter the following into the textbox:</p>
-        <p><code>'; drop table users;--</code></p>
-        <a class="tiny button" id="do_solution">do it</a>
-    </div>
+    <div class="solution panel"></div>
 {% endblock %}
 
 {% block extra_topnav %}
@@ -59,12 +54,5 @@
 
 {% block extra_js %}
 {{ block.super }}
-<script type="text/javascript">
-    $(function() {
-        $('#do_solution').click(function() {
-            $('input[name="name"]').val("'; drop table users;--");
-            return false;
-        });
-    });
-</script>
+<script src="{{STATIC_URL}}js/exercises/injection-sql.js"></script>
 {% endblock %}

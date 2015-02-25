@@ -3,11 +3,24 @@
 {% block title %}Let's Be Bad Guys - Exercise: {% endblock %}
 
 {% block extra_js %}
+<script src="{{ STATIC_URL }}js/vendor/jquery.js"></script>
 <script type="text/javascript">
+    function FSTR(f) {
+        s = f.toString().replace(/^.*\/\* *\r?\n/,"");
+        s = s.replace(/\n\*\/;\}$/, "");
+        return s;
+    }
+
     $(function() {
         $('#show_solution').click(function() {
             $('div.hints').hide();
             $('div.solution').show();
+            if(solutionHTML) {
+                $('div.solution')[0].innerHTML = solutionHTML;
+            }
+            if(solutionSetup) {
+                solutionSetup();
+            }
             return false;
         });
     });
