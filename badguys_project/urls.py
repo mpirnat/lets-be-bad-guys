@@ -11,6 +11,9 @@ urlpatterns = patterns('',
     url(r'^$', TemplateView.as_view(template_name='index.html'), name="home"),
     url(r'^about$',
         TemplateView.as_view(template_name='about.html'), name="about"),
+    url(r'^conclusion$',
+        TemplateView.as_view(template_name='conclusion.html'),
+        name="conclusion"),
 )
 
 urlpatterns += patterns('badguys.vulnerable.views',
@@ -104,9 +107,6 @@ urlpatterns += patterns('badguys.vulnerable.views',
         TemplateView.as_view(template_name='vulnerable/redirects/forwards.html'),
         name='redirects-forwards'),
     url(r'^redirects-and-forwards/forward$', 'unvalidated_forward', name='redirects-forward')
-
-    # url(r'^$', 'badguys_project.views.home', name='home'),
-    # url(r'^badguys_project/', include('badguys_project.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

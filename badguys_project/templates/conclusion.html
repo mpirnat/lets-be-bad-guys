@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Conclusion</h1>
+
+<p>Congratulations on making it through all of the Top Ten vulnerabilities!</p>
+
+<p>Here are a few thoughts we'd like to leave you with...</p>
+
+<h3>Think Like a Bad Guy</h3>
+<p>Your product designer or business owner may be able to think like a regular
+user, but you don't have that luxury.  In order to protect your users, every
+feature must be considered from the point of view of an attacker trying to gain
+leverage over your system.</p>
+
+<h3>Don't Stop at Ten</h3>
+<p>These are just the most common vulnerabilities; there's a very scary long
+tail of other things that can go wrong.  Protecting against the Top Ten should
+be a starting place, not your final destination.</p>
+
+<h3>The Only Constant is Change</h3>
+<p>New vulnerabilities are always being discovered; what you thought was
+secure yesterday may not be today.  The only way to cope with this is to stay on
+your game and adapt to new challenges as they arise.</p>
+
+<h3>Think Positive</h3>
+<p>This may all sound pretty daunting, but if you keep your wits about you and
+stay positive, you can make a significant difference.  Make a plan and execute
+on it, even in incremental steps, and you'll be in a much better place before
+you know it.</p>
+
+{% endblock %}
+
+{% block extra_topnav %}
+<li a href="{%url 'redirects-forward' %}">Prev</a></li>
+{% endblock %}
+
+{% block extra_botnav %}
+<li a href="{%url 'redirects-forward' %}">Prev</a></li>
+{% endblock %}
