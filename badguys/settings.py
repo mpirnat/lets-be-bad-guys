@@ -1,4 +1,4 @@
-# Django settings for badguys_project project.
+# Django settings for badguys project.
 
 import os.path
 import sys
@@ -106,10 +106,10 @@ MIDDLEWARE_CLASSES = (
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
-ROOT_URLCONF = 'badguys_project.urls'
+ROOT_URLCONF = 'badguys.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'badguys_project.wsgi.application'
+WSGI_APPLICATION = 'badguys.wsgi.application'
 
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, 'templates'),
@@ -185,7 +185,7 @@ def show_toolbar(request):
     return False
 
 DEBUG_TOOLBAR_CONFIG = {
-        'SHOW_TOOLBAR_CALLBACK': 'badguys_project.settings.show_toolbar'
+        'SHOW_TOOLBAR_CALLBACK': 'badguys.settings.show_toolbar'
 }
 
 # }}}
