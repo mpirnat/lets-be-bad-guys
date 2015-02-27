@@ -23,25 +23,36 @@
     named <code>p0wned.txt</code>. Use a Python one-liner to open and write to
     the file.</p>
 
-    <h2>Vulnerable Form</h2>
-    <form method="POST">
-        <label for="first_name">First Name:</label>
-        <input name="first_name">
-        <input type="submit">
-    </form>
+    <fieldset>
+        <h2>Vulnerable Form</h2>
+        <form method="POST">
+            <label for="first_name">First Name:</label>
+            <input name="first_name">
+            <input type="submit">
+        </form>
+    </fieldset>
 
     {{ request.method}}
     {% if first_name %}
-        <div class="hints panel">
-            <p>Helpful hints:</p>
-            <ul>
-              <li>Use a Python one-liner to open and write to a file</li>
-              <li>You don't need to specify the directory</li>
-              <li>Don't forget the base64</li>
-              <li>No need to include the newline from the base64 string</li>
-            </ul>
-            <a class="tiny button" id="show_solution">show solution</a>
-        </div>
+        {% if data %}
+            <div class="answer panel">
+                <p>Correct!  You are successfully executing arbitrary code on
+                the server.  You wrote a file that says:</p>
+                <code>{{ data }}</code>
+            </div>
+        {% else %}
+            <div class="hints panel">
+                <p>You didn't write the "p0wned.txt" file this time.</p>
+                <p>Helpful hints:</p>
+                <ul>
+                <li>Use a Python one-liner to open and write to a file</li>
+                <li>You don't need to specify the directory</li>
+                <li>Don't forget the base64</li>
+                <li>No need to include the newline from the base64 string</li>
+                </ul>
+                <a class="tiny button" id="show_solution">show solution</a>
+            </div>
+        {% endif %}
     {% endif %}
     <div class="solution panel"></div>
 
@@ -60,9 +71,4 @@
 {% block extra_js %}
 {{ block.super }}
 <script src="{{STATIC_URL}}js/exercises/injection-code-execution.js"></script>
-<script type="text/javascript">
-    {% if msg %}
-        alert('{{msg}}');
-    {% endif %}
-</script>
 {% endblock %}

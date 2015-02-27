@@ -6,14 +6,6 @@
     <h1>Malicious File Access</h1>
 {% endblock %}
 
-{% block extra_head %}
-    {% if msg %}
-        <script type="text/javascript">
-            alert('{{msg}}');
-        </script>
-    {% endif %}
-{% endblock %}
-
 {% block content %}
     <p>Many sites use a dynamic url to retrieve files for the user. The most
     common implementation seems to be pulling user images like their profile
@@ -22,7 +14,25 @@
     <code>/etc/passwd</code> file or other sensitive data on our filesystem.</p>
 
     <p>Simple exercise: get the <code>settings.py</code> file to display on the screen.</p>
-    Example link: <a href="{% url 'user-profile' %}?p=hacker.jpg">{% url 'user-profile' %}?p=hacker.jpg</a>
+    Example link: <a href="{% url 'user-pic' %}?p=hacker.jpg">{% url 'user-pic' %}?p=hacker.jpg</a>
+
+    {% if msg %}
+    <div class="hints panel">
+        <p>Hints:</p>
+        <ul>
+            <li>{{ msg }}</li>
+            <li>Think about navigating the file system.</li>
+        </ul>
+        <p><a class="tiny button" id="show_solution">show solution</a></p>
+    </div>
+    {% endif %}
+    <div class="solution panel"></div>
+
+{% endblock %}
+
+{% block extra_js %}
+{{ block.super }}
+<script src="{{STATIC_URL}}js/exercises/injection-file-access.js"></script>
 {% endblock %}
 
 {% block extra_topnav %}

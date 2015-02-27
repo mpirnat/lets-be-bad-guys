@@ -15,11 +15,13 @@
     site is using builds SQL by concatenating unsanitized user input. Please
     inject the query <code>DROP TABLE Users</code> into the SQL.</p>
 
-    <form method="POST">
-        <label for="name">Name</label>
-        <input name="name" value="{{ name }}">
-        <input type="submit">
-    </form>
+    <fieldset>
+        <form method="POST">
+            <label for="name">Name</label>
+            <input name="name" value="{{ name }}">
+            <input type="submit">
+        </form>
+    </fieldset>
 
     {% if name %}
         {% if correct %}

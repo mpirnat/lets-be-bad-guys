@@ -9,7 +9,7 @@ var solutionHTML = FSTR(function(){/*
 <code>import base64; base64.encodestring("open('p0wned.txt','w').write('boom!')")</code>
 </p>
 <p>and copy-n-paste the value into the textbox.</p>
-<a class="tiny button" id="do_solution">do it</a>
+<p><a class="tiny button" id="do_solution">do it</a></p>
 */});
 
 solutionSetup = function() {

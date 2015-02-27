@@ -22,7 +22,7 @@ urlpatterns += patterns('badguys.vulnerable.views',
     url(r'^injection/sql$', 'sql', name="injection-sql"),
     url(r'^injection/file-access$', 'file_access',
         name="injection-file-access"),
-    url(r'^user-profile$', 'user_profile', name='user-profile'),
+    url(r'^user-pic$', 'user_pic', name='user-pic'),
     url(r'^injection/code-execution$', 'code_execution',
         name="injection-code-execution"),
 

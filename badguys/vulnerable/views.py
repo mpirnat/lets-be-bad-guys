@@ -1,7 +1,6 @@
 import base64
 import mimetypes
 import os
-import urllib
 
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse
@@ -33,43 +32,61 @@ def file_access(request):
             {'msg': msg})
 
 
-def user_profile(request):
+def user_pic(request):
     """A view that is vulnerable to malicious file access."""
 
     base_path = os.path.join(os.path.dirname(__file__), '../../badguys_project/static/images')
     filename = request.GET.get('p')
-    if filename.startswith('/'):
-        msg = urllib.quote_plus("Did you really think it would be "
-                "that easy? Bonus points if you see the XSS flaw.")
-        return redirect(reverse('injection-file-access') + "?msg=" + msg)
 
     try:
-        data = file(os.path.join(base_path, filename)).read()
+        data = open(os.path.join(base_path, filename), 'rb').read()
     except IOError:
-        return render(request, 'vulnerable/injection/user_profile.html')
+        if filename.startswith('/'):
+            msg = "That was worth trying, but won't always work."
+        elif filename.startswith('..'):
+            msg = "You're on the right track..."
+        else:
+            msg = "Keep trying..."
+        return render(request, 'vulnerable/injection/file_access.html',
+                {'msg': msg})
 
     return HttpResponse(data, content_type=mimetypes.guess_type(filename)[0])
 
 
 def code_execution(request):
+    data = ''
     msg = ''
     first_name = ''
     if request.method == 'POST':
-        first_name = request.POST.get('first_name', '')
+
+        # Clear out a previous success to reset the exercise
         try:
-            exec(base64.decodestring(first_name))
+            os.unlink('p0wned.txt')
         except:
             pass
+
+        first_name = request.POST.get('first_name', '')
+
+        try:
+            # Try it the Python 3 way...
+            exec(base64.decodestring(bytes(first_name, 'ascii')))
+        except TypeError:
+            # Try it the Python 2 way...
+            try:
+                exec(base64.decodestring(first_name))
+            except:
+                pass
+        except:
+            pass
+
+        # Check to see if the attack was successful
         try:
             data = open('p0wned.txt').read()
-            msg = ('Good job! You successfully p0wned yourself. You '
-                   'wrote: %s' % data)
         except IOError:
             data = ''
-            msg = 'You failed to write to p0wed.txt.'
 
     return render(request, 'vulnerable/injection/code_execution.html',
-            {'first_name': request.POST.get('first_name', ''), 'msg': msg})
+            {'first_name': request.POST.get('first_name', ''), 'data': data})
 
 
 ## 02 - Broken Authentication & Session Management

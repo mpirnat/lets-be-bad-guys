@@ -21,10 +21,12 @@ Take that cookie and put it in <code>div#cookie</code> using the element's
 
 <div id="cookie">Put the cookie here.</div>
 
+<fieldset>
 <form method="get">
     <input type="text" name="qs" value="{{qs|safe}}">
     <input type="submit" value="Submit">
 </form>
+</fieldset>
 
 <div id="result"></div>
 {% endblock %}
