@@ -128,7 +128,6 @@ INSTALLED_APPS = (
     'debug_toolbar',
 
     'badguys.vulnerable',
-    'badguys.hints',
 )
 
 # A sample logging configuration. The only tangible logging
