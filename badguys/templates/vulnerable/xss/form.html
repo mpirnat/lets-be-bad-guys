@@ -19,16 +19,21 @@ us and other users of your websites.</p>
 Take that cookie and put it in <code>div#cookie</code> using the element's
 <code>innerHTML</code> property.</p>
 
-<div id="cookie">Put the cookie here.</div>
+<div id="cookie">Put the cookie in this div.</div>
+
+<div id="result"></div>
 
 <fieldset>
 <form method="get">
-    <input type="text" name="qs" value="{{qs|safe}}">
+    <input type="text" name="qs" id="qs" value="{{qs|safe}}">
     <input type="submit" value="Submit">
 </form>
 </fieldset>
 
-<div id="result"></div>
+{% if qs != "hello" %}
+    <a class="tiny button" id="show_solution">show solution</a>
+{% endif %}
+    <div class="solution panel"></div>
 {% endblock %}
 
 {% block extra_topnav %}

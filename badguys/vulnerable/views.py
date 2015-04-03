@@ -96,7 +96,9 @@ def code_execution(request):
 
 def xss_form(request):
     env = {'qs': request.GET.get('qs', 'hello')}
-    return render(request, 'vulnerable/xss/form.html', env)
+    response = render(request, 'vulnerable/xss/form.html', env)
+    response.set_cookie(key='monster', value='omnomnomnomnom!')
+    return response
 
 
 def xss_path(request, path='default'):
