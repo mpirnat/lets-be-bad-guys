@@ -56,29 +56,44 @@ can download it from [http://git-scm.com](http://git-scm.com "Git").
 
 #### Python
 
-All of our examples were developed and tested against Python 2.7, though it’s
-possible that it may all work on Python 3.3 as well without any tweaks.  If you
-don’t have Python, you can download it from
+All of our examples were developed and tested against Python 2.7 and 3.4.
+If you don’t have Python, you can download it from
 [http://www.python.org/download/](http://www.python.org/download/ "Python").
+
+We recommend either Python 3.4 or Python 2.7.
 
 #### Pip
 
-It’s nicer than easy_install, especially for installing project requirements. If
-you don’t have Pip, you can get it by running:
+It’s nicer than easy_install, especially for installing project requirements.
+
+You get pip for free with Python 3.4!
+
+If you're using Python 2.7 and don't already have Pip, you can get it by running:
 
     $ curl -O https://raw.github.com/pypa/pip/master/contrib/get-pip.py
     $ sudo python get-pip.py
 
+
 #### Virtualenv
 
 Virtualenv will keep our code and its dependencies isolated from the rest of
-your system.  If you don’t already have it installed, you can get it by running:
+your system.
+
+You get virtualenv for free with Python 3.4!
+
+If you're using Python 2.7 and don’t already have virtualenv
+installed, you can get it by running:
 
     $ sudo pip install virtualenv
 
+
 ### Getting the Demo Application
 
-Create the virtual environment:
+If you're using Python 3.4, create the virtual environment with:
+
+    $ pyvenv badguys
+
+If you're using Python 2.7, create the virtual environment with:
 
     $ virtualenv badguys
 
@@ -109,6 +124,7 @@ Start up the vulnerable application:
 You should now be able to open up a web browser and visit:
 
 [http://localhost:8000/](http://localhost:8000/ "the demo app")
+
 
 ## Resources
 
@@ -146,6 +162,8 @@ Or as an alternative, you can always:
     >>> urllib.quote("...")
 
 #### Slides
+
+The 2015 slides will be available soon (watch this space!).
 
 The 2014 slides are available at [Speaker Deck][slides3].
 
