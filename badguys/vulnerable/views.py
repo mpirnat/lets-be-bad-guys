@@ -35,7 +35,7 @@ def file_access(request):
 def user_pic(request):
     """A view that is vulnerable to malicious file access."""
 
-    base_path = os.path.join(os.path.dirname(__file__), '../../badguys_project/static/images')
+    base_path = os.path.join(os.path.dirname(__file__), '../../badguys/static/images')
     filename = request.GET.get('p')
 
     try:
