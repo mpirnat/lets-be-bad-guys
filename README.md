@@ -163,7 +163,7 @@ Or as an alternative, you can always:
 
 #### Slides
 
-The 2015 slides will be available soon (watch this space!).
+The 2015 slides are available at [Speaker Deck][slides4].
 
 The 2014 slides are available at [Speaker Deck][slides3].
 
@@ -175,3 +175,4 @@ Deck][slides2].
 [slides1]: http://www.slideshare.net/mpirnat/lets-be-bad-guys
 [slides2]: https://speakerdeck.com/mpirnat/shiny-lets-be-bad-guys-exploiting-and-mitigating-the-top-10-web-app-vulnerabilities
 [slides3]: https://speakerdeck.com/mpirnat/shiny-lets-be-bad-guys-exploiting-and-mitigating-the-top-10-web-app-vulnerabilities-2014-edition
+[slides4]: https://speakerdeck.com/mpirnat/shiny-lets-be-bad-guys-exploiting-and-mitigating-the-top-10-web-app-vulnerabilities-2015-edition
