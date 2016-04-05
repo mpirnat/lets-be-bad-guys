@@ -35,15 +35,16 @@ consent may be a criminal act.  Attendees agree that the presenters and
 conference staff are not responsible for what attendees choose to do with this
 information.
 
+
 ## Getting Set Up
 
-You should work through this section to install and set up the demo application
-prior to the start of the tutorial.  Getting ready in advance will help ensure a
-smoother and more efficient tutorial experience.
+You should work through this section to **install and set up the demo
+application prior to the start of the tutorial**.  Getting ready in advance
+will help ensure a smoother and more efficient tutorial experience.
 
 These instructions assume a UNIX-like environment (Mac OS X, Linux, etc.).
-Windows folks, we assume you know how to do the equivalent (if not, now’s a
-great time to learn!).
+We'll call out differences for Windows folks as needed.
+
 
 ### Things to Install
 
@@ -54,6 +55,7 @@ First, make sure you have all of the following items installed.
 You’ll need Git to check out the code repository that we’ll be working with. You
 can download it from [http://git-scm.com](http://git-scm.com "Git").
 
+
 #### Python
 
 All of our examples were developed and tested against Python 2.7 and 3.4.
@@ -62,13 +64,15 @@ If you don’t have Python, you can download it from
 
 We recommend either Python 3.4 or Python 2.7.
 
+
 #### Pip
 
 It’s nicer than easy_install, especially for installing project requirements.
 
 You get pip for free with Python 3.4!
 
-If you're using Python 2.7 and don't already have Pip, you can get it by running:
+If you're using Python 2.7 and don't already have Pip, [follow the instructions
+here](https://pip.pypa.io/en/stable/installing/), or take a shortcut and run:
 
     $ curl -O https://raw.github.com/pypa/pip/master/contrib/get-pip.py
     $ sudo python get-pip.py
@@ -86,8 +90,27 @@ installed, you can get it by running:
 
     $ sudo pip install virtualenv
 
+### Setting Your Path (Windows)
+
+**If you're on Windows**,
+you may need to update your PATH
+so that Windows can find your python.exe.
+This varies a bit between
+[different versions of Windows][windows-path]
+so use the method that's right for your OS.
+
+If you installed Python 3.4, add:
+
+    C:\Python34\;C:\Python34\Scripts\;C:\Python34\Tools\Scripts
+
+If you installed Python 2.7, add:
+
+    C:\Python27\;C:\Python27\Scripts\
+
 
 ### Getting the Demo Application
+
+#### Installation: Mac & Linux
 
 If you're using Python 3.4, create the virtual environment with:
 
@@ -112,10 +135,39 @@ Install the application’s dependencies:
     $ cd src
     $ pip install -r requirements.txt
 
+
+#### Installtion: Windows
+
+If you're using Python 3.4, create the virtual environment with:
+
+    > pyvenv.py badguys
+
+If you're using Python 2.7, create the virtual environment with:
+
+    > virtualenv badguys
+
+Activate the virtual environment; this puts you into the “sandbox” where you
+won’t interfere with other Python apps or your main system Python:
+
+    > cd badguys
+    > Scripts/activate.bat
+
+Clone a copy of the application repository:
+
+    $ git clone https://github.com/mpirnat/lets-be-bad-guys.git src
+
+Install the application’s dependencies:
+
+    > cd src
+    > pip.exe install -r requirements.txt
+
+
+#### Start the Application
+
 Since this application contains some real, live vulnerabilities, you may want to
 turn off your wi-fi or network connection at this point to protect yourself from
 potential malicious activity.  (This isn't a problem if you're only listening on
-127.0.0.1, but is for real if you tend to listen on 0.0.0.0!)
+127.0.0.1--our default--but is for real if you tend to listen on 0.0.0.0!)
 
 Start up the vulnerable application:
 
