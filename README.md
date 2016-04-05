@@ -136,7 +136,7 @@ Install the application’s dependencies:
     $ pip install -r requirements.txt
 
 
-#### Installtion: Windows
+#### Installation: Windows
 
 If you're using Python 3.4, create the virtual environment with:
 
