@@ -62,14 +62,14 @@ All of our examples were developed and tested against Python 2.7 and 3.4.
 If you don’t have Python, you can download it from
 [http://www.python.org/download/](http://www.python.org/download/ "Python").
 
-We recommend either Python 3.4 or Python 2.7.
+We recommend either Python 3.4 (or later) or Python 2.7.
 
 
 #### Pip
 
 It’s nicer than easy_install, especially for installing project requirements.
 
-You get pip for free with Python 3.4!
+You get pip for free with Python 3.4! (And also with newer versions too.)
 
 If you're using Python 2.7 and don't already have Pip, [follow the instructions
 here](https://pip.pypa.io/en/stable/installing/), or take a shortcut and run:
@@ -103,6 +103,10 @@ If you installed Python 3.4, add:
 
     C:\Python34\;C:\Python34\Scripts\;C:\Python34\Tools\Scripts
 
+For Python 3.5, add:
+
+    C:\Python35\;C:\Python35\Scripts\;C:\Python35\Tools\Scripts
+
 If you installed Python 2.7, add:
 
     C:\Python27\;C:\Python27\Scripts\
@@ -112,7 +116,7 @@ If you installed Python 2.7, add:
 
 #### Installation: Mac & Linux
 
-If you're using Python 3.4, create the virtual environment with:
+If you're using Python 3.4 (or later), create the virtual environment with:
 
     $ pyvenv badguys
 
