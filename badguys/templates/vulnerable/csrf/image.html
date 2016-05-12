@@ -8,15 +8,15 @@
 
 {% block content %}
 <p>Imagine, if you will, a website feature where an authenticated user with a
-Payment on File could easily send a gift card to a friend.</p>
+payment on file could easily send a gift card to a friend.</p>
 
-<p>Seems innocent. We'll make sure that when the user POSTs the form that
+<p>Seems innocent enough. We'll make sure that when the user POSTs the form that
 they are authenticated and that have a PoF. Done. Safe. Or...</p>
 
 <p>What would happen if we were not careful about security? Let's pretend
 that the view doesn't check if the POST was a POST. If we could find another
 page on the site with an XSS vulnerablity we could construct a URL that
-could inject an image link that triggers a giftcard purchase.</p>
+could inject an image link that triggers a gift card purchase.</p>
 
 <p>Let's try it!</p>
 
@@ -24,7 +24,7 @@ could inject an image link that triggers a giftcard purchase.</p>
     <li>Use the <a href="{% url 'csrf-gift-card' %}">giftcard</a> form for reference.</li>
     <li>Your email address is <code>evil@evil.com</code></li>
     <li>You want $100 giftcards (the field expects an integer)</li>
-    <li>Use a querystring parameter <code>qs</code> on this page to inject the image.</li>
+    <li>Use a query string parameter <code>qs</code> on this page to inject the image.</li>
 </ul>
 
 {% if qs %}

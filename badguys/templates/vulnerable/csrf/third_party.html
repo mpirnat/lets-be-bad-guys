@@ -9,11 +9,15 @@
 {% block content %}
 
 <p>As an evil genius you are interested in tricking unsuspecting users into
-giving you gift cards.</p>
+giving you gift cards. We're going to simulate an attack from an
+innocent-looking but secretly evil third-party site by enticing the victim
+to gaze at adorable cat photos.</p>
 
-<p>Open up this template (<code>badguys_project/templates/vulnerable/csrf/third_party.html</code>)
-in your editor and create a form that will POST data to the
-<a href="{% url 'csrf-gift-card' %}">gift card</a> form.</p>
+<p>Open up the template for this page --
+<code>badguys/templates/vulnerable/csrf/third_party.html</code> --
+in your editor and create an innocent-looking form that will POST data to the
+vulnerable <a href="{% url 'csrf-gift-card' %}">gift card</a> form.
+There will be an HTML comment inviting you to add the form.</p>
 
 <ul>
     <li>Your email address is <code>evil@evil.com</code></li>
@@ -21,7 +25,6 @@ in your editor and create a form that will POST data to the
     <li>All inputs (except the submit) should be hidden</li>
     <li>Your submit button should say <code>View Photos</code> because that looks innocent</li>
 </ul>
-
 
 <!-- put your form here
 

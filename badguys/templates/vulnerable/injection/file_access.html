@@ -7,11 +7,12 @@
 {% endblock %}
 
 {% block content %}
-    <p>Many sites use a dynamic url to retrieve files for the user. The most
+    <p>Many sites use a dynamic URL to retrieve files for the user. A very
     common implementation seems to be pulling user images like their profile
-    picture. Instead of using an id or token these sites sometimes use partial
-    file paths. A clever individual could spot this and try to get our DB passwords,
-    <code>/etc/passwd</code> file or other sensitive data on our filesystem.</p>
+    picture. Instead of using an ID or token these sites sometimes use partial
+    file paths. A clever individual could spot this and try to get our database
+    passwords, <code>/etc/passwd</code> file, or other sensitive data on our
+    filesystem.</p>
 
     <p>Simple exercise: get the <code>settings.py</code> file to display on the screen.</p>
     Example link: <a href="{% url 'user-pic' %}?p=hacker.jpg">{% url 'user-pic' %}?p=hacker.jpg</a>

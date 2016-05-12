@@ -202,6 +202,10 @@ Craft a form and add it to the template:
 
 Save the template and reload the page in your browser, then submit the form.
 
+Optionally garnish with innocent-looking kitten photos from Placekitten.com:
+
+    <img src="http://placekitten.com/400/200">
+
 
 ## A9: Using Known Vulnerable Components
 
