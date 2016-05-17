@@ -177,6 +177,12 @@ Start up the vulnerable application:
 
     $ python manage.py runserver
 
+For advanced users who are setting this up inside a Docker container--and *only*
+if you are doing something like that (see security warning above)--you *will*
+have to make it listen on 0.0.0.0:
+
+    $ python manage.py runserver 0.0.0.0:8000
+
 You should now be able to open up a web browser and visit:
 
 [http://localhost:8000/](http://localhost:8000/ "the demo app")
