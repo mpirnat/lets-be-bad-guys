@@ -219,6 +219,8 @@ Or as an alternative, you can always:
 
 #### Slides
 
+The OSCON 2016 slides (now in glorious widescreen) are available at [Speaker Deck][slides5].
+
 The 2015 slides are available at [Speaker Deck][slides4].
 
 The 2014 slides are available at [Speaker Deck][slides3].
@@ -232,3 +234,4 @@ Deck][slides2].
 [slides2]: https://speakerdeck.com/mpirnat/shiny-lets-be-bad-guys-exploiting-and-mitigating-the-top-10-web-app-vulnerabilities
 [slides3]: https://speakerdeck.com/mpirnat/shiny-lets-be-bad-guys-exploiting-and-mitigating-the-top-10-web-app-vulnerabilities-2014-edition
 [slides4]: https://speakerdeck.com/mpirnat/shiny-lets-be-bad-guys-exploiting-and-mitigating-the-top-10-web-app-vulnerabilities-2015-edition
+[slides5]: https://speakerdeck.com/mpirnat/shiny-lets-be-bad-guys-exploiting-and-mitigating-the-top-10-web-app-vulnerabilities-oscon-2016-edition
