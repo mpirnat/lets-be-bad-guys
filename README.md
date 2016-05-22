@@ -29,7 +29,7 @@ subjects such as:
  * Insufficient Transport Layer Protection
 
 **Disclaimer:** Topics and techniques discussed in this tutorial should be used
-only for “what hat” purposes of securing your own applications and systems from
+only for “white hat” purposes of securing your own applications and systems from
 attackers.  Use of this information against other organizations without their
 consent may be a criminal act.  Attendees agree that the presenters and
 conference staff are not responsible for what attendees choose to do with this
