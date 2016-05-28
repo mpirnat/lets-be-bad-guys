@@ -178,7 +178,7 @@ Start up the vulnerable application:
     $ python manage.py runserver
 
 **For advanced users who are setting this up inside a Docker container
---and *only* if you are doing something like that (see security warning above)***
+--and *only* if you are doing something like that (see security warning above)**
 --you *will* have to make it listen on 0.0.0.0:
 
     # Totally DON'T do this unless you are using Docker...
@@ -226,6 +226,8 @@ Or as an alternative, you can always:
 
 #### Slides
 
+The PyCon 2016 slides (in retro 4x3) are available at [Speaker Deck][slides6].
+
 The OSCON 2016 slides (now in glorious widescreen) are available at [Speaker Deck][slides5].
 
 The 2015 slides are available at [Speaker Deck][slides4].
@@ -242,3 +244,4 @@ Deck][slides2].
 [slides3]: https://speakerdeck.com/mpirnat/shiny-lets-be-bad-guys-exploiting-and-mitigating-the-top-10-web-app-vulnerabilities-2014-edition
 [slides4]: https://speakerdeck.com/mpirnat/shiny-lets-be-bad-guys-exploiting-and-mitigating-the-top-10-web-app-vulnerabilities-2015-edition
 [slides5]: https://speakerdeck.com/mpirnat/shiny-lets-be-bad-guys-exploiting-and-mitigating-the-top-10-web-app-vulnerabilities-oscon-2016-edition
+[slides6]: https://speakerdeck.com/mpirnat/shiny-lets-be-bad-guys-exploiting-and-mitigating-the-top-10-web-app-vulnerabilities-pycon-2016-edition
