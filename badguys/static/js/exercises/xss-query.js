@@ -32,7 +32,7 @@ var solutionHTML = FSTR(function(){/*
     &nbsp;&nbsp;&nbsp;&nbsp;'''i.src='http://test/image.jpg';''' +\<br>
     &nbsp;&nbsp;&nbsp;&nbsp;'''i.setAttribute('display', 'none');''' +\<br>
     &nbsp;&nbsp;&nbsp;&nbsp;'''document.body.appendChild(i);"'''<br>
-    urllib.quote(s)
+    quote(s)
 </code>
 
 <p>For Python 2, change the first line to read: <code>from urllib import quote</code>.</p>
