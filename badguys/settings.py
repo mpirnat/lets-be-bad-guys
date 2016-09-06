@@ -70,7 +70,7 @@ STATIC_ROOT = ''
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = '/static/'
+STATIC_URL = os.path.join(PROJECT_ROOT, 'static/')
 
 # Additional locations of static files
 STATICFILES_DIRS = (
