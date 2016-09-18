@@ -1,5 +1,5 @@
 """
-WSGI config for badguys_project project.
+WSGI config for badguys project.
 
 This module contains the WSGI application used by Django's development server
 and any production WSGI deployments. It should expose a module-level variable

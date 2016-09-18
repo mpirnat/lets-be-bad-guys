@@ -193,7 +193,7 @@ non-working qs paramter.
 In this exercise we're pretending to submit a form from an external location
 that will be POSTed to our vulnerable site.
 
-Open up badguys_project/templates/vulnerable/csrf/third_party.html in your
+Open up badguys/templates/vulnerable/csrf/third_party.html in your
 editor and find the "put your form here" comment.
 
 Use the gift card form again for reference to field names:
