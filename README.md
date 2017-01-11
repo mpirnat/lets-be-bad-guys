@@ -226,16 +226,17 @@ Or as an alternative, you can always:
 
 #### Slides
 
-The PyCon 2016 slides (in retro 4x3) are available at [Speaker Deck][slides6].
+Slides for various presentations of this material are available online for your
+future reference:
 
-The OSCON 2016 slides (now in glorious widescreen) are available at [Speaker Deck][slides5].
 
-The 2015 slides are available at [Speaker Deck][slides4].
-
-The 2014 slides are available at [Speaker Deck][slides3].
-
-The 2013 slides are available at either [Slideshare][slides1] or [Speaker
-Deck][slides2].
+* [The CodeMash 2017 slides][slides7] (once more in glorious widescreen)
+* [The PyCon 2016 slides][slides6] (in retro 4x3)
+* [The OSCON 2016 slides][slides5] (now in glorious widescreen)
+* [The PyCon 2015 slides][slides4]
+* [The PyCon 2014 slides][slides3]
+* [The PyOhio 2013 slides][slides2]
+* [The PyCon 2013 slides][slides1]
 
 
 [top10]: https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project
@@ -245,3 +246,4 @@ Deck][slides2].
 [slides4]: https://speakerdeck.com/mpirnat/shiny-lets-be-bad-guys-exploiting-and-mitigating-the-top-10-web-app-vulnerabilities-2015-edition
 [slides5]: https://speakerdeck.com/mpirnat/shiny-lets-be-bad-guys-exploiting-and-mitigating-the-top-10-web-app-vulnerabilities-oscon-2016-edition
 [slides6]: https://speakerdeck.com/mpirnat/shiny-lets-be-bad-guys-exploiting-and-mitigating-the-top-10-web-app-vulnerabilities-pycon-2016-edition
+[slides7]: https://speakerdeck.com/mpirnat/shiny-lets-be-bad-guys-exploiting-and-mitigating-the-top-10-web-app-vulnerabilities-codemash-2017-edition
