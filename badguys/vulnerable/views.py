@@ -21,7 +21,7 @@ def sql(request):
     )
     expected_sql = "'; DROP TABLE Users;--"
 
-    name = request.POST["name"] if request.method == "POST" else ""
+    name = request.POST["name"] if request.method is "POST" else ""
     correct = norm(name) == norm(expected_sql)
 
     return render(
