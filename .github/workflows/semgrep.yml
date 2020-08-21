@@ -10,14 +10,17 @@ jobs:
     name: semgrep
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@master
       - name: Semgrep
         id: semgrep
         uses: returntocorp/semgrep-action@v1
         with:
+          config: https://semgrep.dev/p/r2c-security-audit
           generateSarif: "1"
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v1
         with:
           sarif_file: semgrep.sarif
         if: always()
+
+
