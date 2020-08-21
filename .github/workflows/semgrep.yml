@@ -3,7 +3,7 @@ name: Semgrep
 on:
   pull_request:
   push:
-    branches: [master, develop]
+    branches: [master, develop, semgrep-mistakes]
 
 jobs:
   semgrep:
