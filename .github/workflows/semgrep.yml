@@ -1,0 +1,12 @@
+name: Semgrep
+on: pull_request
+jobs:
+  semgrep:
+    name: semgrep with managed policy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: returntocorp/semgrep-action@v1
+        with:
+          publishToken: ${{ secrets.SEMGREP_APP_TOKEN }}
+          publishDeployment: "33"
