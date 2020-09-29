@@ -34,7 +34,7 @@ def sql(request):
 def file_access(request):
     msg = request.GET.get("msg", "")
     return render(request, "vulnerable/injection/file_access.html", {"msg": msg})
-
+   
 
 def user_pic(request):
     """A view that is vulnerable to malicious file access."""
@@ -58,7 +58,7 @@ def user_pic(request):
 
 def code_execution(request):
     data = ""
-    msg = ""
+    msg = ""  
     first_name = ""
     if request.method == "POST":
 
@@ -74,13 +74,13 @@ def code_execution(request):
         try:
             data = open("p0wned.txt").read()
         except IOError:
-            data = ""
+            data = ""  
 
     return render(
         request,
         "vulnerable/injection/code_execution.html",
         {"first_name": request.POST.get("first_name", ""), "data": data},
-    )
+    )    
 
 
 ## 02 - Broken Authentication & Session Management
@@ -126,7 +126,7 @@ def dor_user_profile(request, userid=None):
     env["user_id"] = userid
     return render(request, "vulnerable/direct_object_references/profile.html", env)
 
-
+ 
 ## 05 - Security Misconfiguration
 
 
