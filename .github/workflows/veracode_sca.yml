@@ -15,8 +15,7 @@ on:
 jobs:
   veracode-sca-task:
     runs-on: ubuntu-latest
-    name: Scan remote repository for Issues
-
+    name: Veracode SCA Agent Scan Action
     steps:
       - name: Checkout
         uses: actions/checkout@v2
