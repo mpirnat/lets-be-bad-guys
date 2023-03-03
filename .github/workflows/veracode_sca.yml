@@ -1,0 +1,50 @@
+# This workflow will initiate a Veracode SCA Agent scan
+
+name: Veracode SCA Agent Scan
+
+on:
+  # Triggers the workflow on push where package-lock.json modifies or pull request events
+  push:
+    paths:
+      - 'package.json'
+      - 'package-lock.json'
+  pull_request:
+  
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  veracode-sca-task:
+    runs-on: ubuntu-latest
+    name: Scan remote repository for Issues
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Run Veracode SCA
+        env:
+          SRCCLR_API_TOKEN: ${{ secrets.SRCCLR_API_TOKEN }}
+        uses: veracode/veracode-sca@v2.0.65
+        with:
+          # An attribute to instruct the action to create an issue from found vulnerability or just simple text output
+          create-issues: false
+          # Authorization token to query and create issues
+          # github_token: # default is ${{ github.token }}
+          # Run the SRCCLR with the `--quick` options
+          # quick: # optional, default is false
+          # Show update advisor
+          # update_advisor: # optional, default is false
+          # A git URL to work with in case the scan is not for the current repository
+          # url: # optional, default is 
+          # A path within the repository where the build definition starts
+          # path: # optional, default is .
+          # Run the SRCCLR in debug mode
+          # debug: # optional, default is false
+          # Run the SRCCLR with the `--skip-collectors` options
+          # skip-collectors: # optional, default is false
+          # Run the SRCCLR with the `--allow-dirty` option
+          # allow-dirty: # optional, default is false
+          # Run the SRCCLR with the `--recursive` option
+          # recursive: # optional, default is false
+          # Run the SRCCLR with the `--skip-vms` option
+          # skip-vms: # optional, default is false 
