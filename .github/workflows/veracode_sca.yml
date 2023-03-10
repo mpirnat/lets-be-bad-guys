@@ -27,7 +27,7 @@ jobs:
           # An attribute to instruct the action to create an issue from found vulnerability or just simple text output
           create-issues: false
           # Authorization token to query and create issues
-          # github_token: # default is ${{ github.token }}
+          github_token: ${{ github.token }}
           # Run the SRCCLR with the `--quick` options
           # quick: # optional, default is false
           # Show update advisor
