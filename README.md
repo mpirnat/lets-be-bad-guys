@@ -248,3 +248,4 @@ future reference:
 [slides6]: https://speakerdeck.com/mpirnat/shiny-lets-be-bad-guys-exploiting-and-mitigating-the-top-10-web-app-vulnerabilities-pycon-2016-edition
 [slides7]: https://speakerdeck.com/mpirnat/shiny-lets-be-bad-guys-exploiting-and-mitigating-the-top-10-web-app-vulnerabilities-codemash-2017-edition
 [windows-path]: http://www.java.com/en/download/help/path.xml
+
